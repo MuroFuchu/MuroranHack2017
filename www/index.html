@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html ng-app="myApp">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -19,16 +19,13 @@
   
   <script src="js/services/MainMenuService.js"></script>
   <script src="js/controllers/MainMenu.js"></script>
-  <script>
-    ons.bootstrap(['myApp']);
-    ons.ready(function() {
-      //for(var i in MenuList) {
-        //console.log(MenuList[i].page);
-      //}
-    });
-  </script>
 </head>
 <body>
 <ons-navigator var="myNavigator" page="views/Top.html"></ons-navigator>
+<!--<ons-page>
+<div ng-init="test = {'aa':'bb'}">
+{{test.aa}}
+</div>
+</ons-page>-->
 </body>
 </html>

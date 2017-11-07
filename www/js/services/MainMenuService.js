@@ -5,4 +5,3 @@ app.value('MainMenuService', {
         {"page":"Exercise","text":"運動する"}
     ]
 });
-
