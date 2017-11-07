@@ -1,0 +1,16 @@
+<ons-page>
+  <ons-toolbar>
+    <div class="center">室蘭百名坂</div>
+  </ons-toolbar>
+  <div style="text-align: center" ng-controller="MainMenuCtrl as menu">
+  <ul>
+    <section style="padding: 10px">
+    <li ng-repeat="m in menu.MainMenuList">
+      <ons-button modifier="light" ng-click="menu.MenuClick(m)">
+        {{m.text}}
+      </ons-button>
+    </li>
+    </section>
+  </ul>
+</div>
+</ons-page>
