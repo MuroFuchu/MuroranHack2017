@@ -1,19 +1,16 @@
-app.controller('MainMenuCtrl',function($scope,MainMenuService){
-    console.log('MainMenuCtrl作成');
-    $scope.MainMenuList = {};
+app.controller('MainMenuCtrl', function($scope,MainMenuService){
+   
+    $scope.MainMenuList = null;
     
     $scope.init = function(){
-        $scope.MainMenuList = JSON.parse(JSON.stringify(MainMenuService.MainMenus));
-        //console.log(JSON.parse(JSON.stringify(MainMenuService.MainMenus)));
-        //MainMenuList = MainMenuService.MainMenus;
+        $scope.MainMenuList = JSON.parse(JSON.stringify(MainMenuService.getMenus()));       
         for(var i in $scope.MainMenuList){
-            console.log("{0}/{1}".format(MainMenuList[i].page , MainMenuList[i].text));
+            console.log("{0}/{1}".format($scope.MainMenuList[i].page , $scope.MainMenuList[i].text));
         }
     };
     
-    $scope.MenuClick = function(menu){
-        myNavigator.pushPage("{0}{1}.html".format(CMN.Path.Views , menu.page));
-    };
-    
+    $scope.menuClick = function(menu){
+        ons.pushPage("{0}{1}.html".format(CMN.Path.Views , menu.page));
+    };    
     $scope.init();
 });
