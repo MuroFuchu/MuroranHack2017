@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html ng-app="myApp">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -15,20 +15,11 @@
   <script src="lib/onsenui/js/onsenui.min.js"></script>
   <script src="lib/onsenui/js/angular-onsenui.min.js"></script>
   
-  <script src="js/common.js"></script>
-  
+  <script src="js/common.js"></script>  
   <script src="js/services/MainMenuService.js"></script>
-  <script src="js/controllers/MainMenu.js"></script>
-  <script>
-    ons.bootstrap(['myApp']);
-    ons.ready(function() {
-      //for(var i in MenuList) {
-        //console.log(MenuList[i].page);
-      //}
-    });
-  </script>
+  <script src="js/controllers/MainMenu.js"></script> 
 </head>
 <body>
-<ons-navigator var="myNavigator" page="views/Top.html"></ons-navigator>
+<ons-navigator page="views/Top.html"></ons-navigator>
 </body>
 </html>
