@@ -1,4 +1,7 @@
-<ons-page ng-controller="MainMenuCtrl">
+<ons-page>
+  <script src="js/controllers/MainMenu.js"></script>
+  <script src="js/services/MainMenuService.js"></script>  
+
   <ons-toolbar>
     <div class="center">室蘭百名坂</div>
   </ons-toolbar>
@@ -7,7 +10,8 @@
     <ul>
       <section style="padding: 10px">
         <li ng-repeat="m in MainMenuList">
-          <!--<ons-button ng-click="menuClick(m)">
+          <!--<ons-button modifier="light" ng-click="ons.navigator.pushPage('views/' + m.page + '.html');">-->
+          <ons-button modifier="light" ng-click="menuClick(m);">
             {{m.text}}
           </ons-button>-->
         </li>

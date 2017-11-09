@@ -15,23 +15,13 @@
   <script src="lib/onsenui/js/onsenui.min.js"></script>
   <script src="lib/onsenui/js/angular-onsenui.min.js"></script>
   
-  <script src="js/common.js"></script>  
-  <script src="js/services/MainMenuService.js"></script>
-  <script src="js/controllers/MainMenu.js"></script> 
+  <script src="js/common.js"></script>
+  
+  <script src="js/controllers/MainMenu.js"></script>
+  <script src="js/services/MainMenuService.js"></script>  
+  <script src="js/controllers/TouristSpotList.js"></script>
 </head>
 <body>
-  <!--<ons-navigator page="views/Top.html"></ons-navigator>-->
-  
-  <ons-page ng-controller="MainMenuCtrl">
-    <ons-button ng-click="menuClick(m)">
-            {{test}}
-    </ons-button>
-    <ons-list>
-       <ons-list-item ng-repeat="m in MainMenuList" ng-click="menuClick(m)">
-         {{test}}
-       </ons-list-item>
-    </ons-list>
-  </ons-page> 
-  
+<ons-navigator var="myNavigator" page="views/Top.html"></ons-navigator>
 </body>
 </html>
