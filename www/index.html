@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html ng-app="myApp">
+<html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -12,6 +12,7 @@
   
   <script src="components/loader.js"></script>
   <script src="lib/angular/angular.min.js"></script>
+  <!--<script src="lib/onsenui/js/onsenui.js"></script>-->
   <script src="lib/onsenui/js/onsenui.min.js"></script>
   <script src="lib/onsenui/js/angular-onsenui.min.js"></script>
   
@@ -20,8 +21,11 @@
   <script src="js/controllers/MainMenu.js"></script>
   <script src="js/services/MainMenuService.js"></script>  
   <script src="js/controllers/TouristSpotList.js"></script>
+<script>
+  ons.bootstrap(['myApp']);
+</script>
 </head>
 <body>
-<ons-navigator var="myNavigator" page="views/Top.html"></ons-navigator>
+<ons-navigator var="myNavi" page="views/Top.html"></ons-navigator>
 </body>
 </html>

@@ -14,7 +14,7 @@ app.controller('TouristSpotListCtrl', function($scope){
         var link = "TouristSpotDetails";
         console.log("{0}{1}.htmlに遷移".format(CMN.Path.Views , link));
         //$scope.ons.navigator.pushPage("{0}{1}.html".format(CMN.Path.Views , menu.page));
-        myNavigator.pushPage("{0}{1}.html".format(CMN.Path.Views , link));
+        myNavi.pushPage("{0}{1}.html".format(CMN.Path.Views , link));
     };    
     $scope.init();
 });

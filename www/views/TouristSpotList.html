@@ -1,19 +1,21 @@
 <ons-page>
-  <script src="js/controllers/TouristSpotList.js"></script>
   <ons-toolbar>
+    <div class="left">
+      <ons-back-button>Back</ons-back-button>
+    </div>
     <div class="center">観光地から探す</div>
   </ons-toolbar>
   <div ng-controller="TouristSpotListCtrl">
     <section style="padding: 10px">
-      <ons-button ng-click="linkClick();">
+      <a ng-click="linkClick();">
         室蘭港の夜景
-      </ons-button>
+      </a>
       <img src="img/yakei.png" />
     </section>
     <section style="padding: 10px">
-      <ons-button ng-click="linkClick();">
+      <a ng-click="linkClick();">
         室蘭港の夜景
-      </ons-button>
+      </a>
       <img src="img/yakei.png" />
     </section>
     ・・・繰り返し
