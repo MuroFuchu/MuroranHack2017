@@ -2,7 +2,6 @@
 // グローバルオブジェクト
 CMN = {};
 app = angular.module( 'myApp', ['onsen']);
-
 ///////////////////////////////////////////
 //パス
 CMN.Path = new Object();

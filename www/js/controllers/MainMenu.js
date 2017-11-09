@@ -1,5 +1,6 @@
 app.controller('MainMenuCtrl', function($scope,MainMenuService){
    
+   $scope.test = "HELLO";
     $scope.MainMenuList = null;
     
     $scope.init = function(){

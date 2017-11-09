@@ -20,6 +20,18 @@
   <script src="js/controllers/MainMenu.js"></script> 
 </head>
 <body>
-<ons-navigator page="views/Top.html"></ons-navigator>
+  <!--<ons-navigator page="views/Top.html"></ons-navigator>-->
+  
+  <ons-page ng-controller="MainMenuCtrl">
+    <ons-button ng-click="menuClick(m)">
+            {{test}}
+    </ons-button>
+    <ons-list>
+       <ons-list-item ng-repeat="m in MainMenuList" ng-click="menuClick(m)">
+         {{test}}
+       </ons-list-item>
+    </ons-list>
+  </ons-page> 
+  
 </body>
 </html>

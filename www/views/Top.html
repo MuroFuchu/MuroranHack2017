@@ -1,14 +1,15 @@
-<ons-page>
+<ons-page ng-controller="MainMenuCtrl">
   <ons-toolbar>
     <div class="center">室蘭百名坂</div>
   </ons-toolbar>
-  <div style="text-align:center" ng-controller="MainMenuCtrl">
+  <div style="text-align:center">
+  {{test}}
     <ul>
       <section style="padding: 10px">
         <li ng-repeat="m in MainMenuList">
-          <ons-button modifier="light" ng-click="menuClick(m)">
+          <!--<ons-button ng-click="menuClick(m)">
             {{m.text}}
-          </ons-button>
+          </ons-button>-->
         </li>
       </section>
     </ul>
