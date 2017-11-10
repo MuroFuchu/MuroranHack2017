@@ -1,13 +1,20 @@
-app.factory('GetJsonService', function(){  
-    var service = {};  
-    service.MainMenus =[
-        {"page":"TouristList","text":"観光地から探す"},
-        {"page":"EnjoySlope","text":"坂を楽しむ"},
-        {"page":"Exercise","text":"運動する"}
-    ];
-    
-    service.getData = function(){  
-      return this.MainMenus;
-    };
-    return service;
+app.factory('GetJsonService', function($http){ 
+  var service = {};  
+  service.getData = function(file){
+    var url = "{0}{1}.json".format(CMN.Path.Datas, file);
+    console.log("JSON取得処理開始：" + url);
+    return $http.get(url)
+      .success(function(data, status, headers, config) {
+        console.log("JSON取得成功：" + url);
+        return data;
+      }).error(function(data, status, headers, config) {
+        console.log("JSON取得エラー：" + url);
+        /*
+        console.log(data);
+        console.log(status);
+        console.log(headers);
+        */
+      });
+  };
+  return service;
 });

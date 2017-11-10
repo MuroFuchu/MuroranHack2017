@@ -8,6 +8,10 @@ CMN = {};
 CMN.Path = new Object();
 CMN.Path.Controllers = "controllers/";
 CMN.Path.Views = "views/";
+CMN.Path.Datas = "app_data/";
+CMN.Path.Img = new Object();
+CMN.Path.Img.Slope = "img/slope/";
+CMN.Path.Img.Spot = "img/spot/";
 
 ///////////////////////////////////////////
 /// Format
