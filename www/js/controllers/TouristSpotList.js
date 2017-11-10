@@ -6,15 +6,26 @@ app.controller('TouristSpotListCtrl', function($scope, GetJsonService){
         GetJsonService.getData("TourSpots").then(
             function(res) {
                 $scope.TouristSpotList = res.data.tourspots;
+                for(var i in $scope.TouristSpotList) {
+                    var spot = $scope.TouristSpotList[i];
+                    console.log("ID:{0}/{1}".format(
+                        spot.mng.refbase , 
+                        spot.name.name1.written
+                        )
+                    );
+                }
             }
         );
     };
     
-    $scope.linkClick = function(){
+    $scope.linkClick = function(spot){
         var link = "TouristSpotDetails";
         console.log("{0}{1}.htmlに遷移".format(CMN.Path.Views , link));
-        //$scope.ons.navigator.pushPage("{0}{1}.html".format(CMN.Path.Views , menu.page));
-        myNavi.pushPage("{0}{1}.html".format(CMN.Path.Views , link));
+        console.log("詳細：{0}".format(spot.name.name1.written));        
+        myNavi.pushPage(
+            "{0}{1}.html".format(CMN.Path.Views , link),
+            {spot : spot}
+        );
     };    
     $scope.init();
 });

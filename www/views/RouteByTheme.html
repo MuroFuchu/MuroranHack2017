@@ -1,4 +1,4 @@
-<ons-page>
+<ons-page ng-controller="RouteByThemeCtrl">
   <ons-toolbar>
     <div class="left">
       <ons-back-button>Back</ons-back-button>
@@ -9,22 +9,22 @@
     </div>
   </ons-toolbar>
   <div>
-    <div>◆景色を楽しむ</div>
-    <div class="GMap">Googleマップ出す</div>
+    <p style="margin-left:10px;margin-top:10px;">景色を楽しむ</p>
+    <div id="map_canvas" style="width:85%;height:250px;margin-left:auto;margin-right:auto;margin-bottom:20px;"></div>
     <ul>
       <li>
         <a ng-click="myNavi.pushPage('views/RouteDetails.html');">
-          ○○周辺：3パン
+          ➀大谷高校周辺：3パン
         </a>
       </li>
       <li>
         <a ng-click="myNavi.pushPage('views/RouteDetails.html');">
-          ○○周辺：3パン
+          ➁白鳥大橋を眺める：4パン
         </a>
       </li>
       <li>
         <a ng-click="myNavi.pushPage('views/RouteDetails.html');">
-          ○○周辺：3パン
+          ➂塩見展望台：1パン
         </a>
       </li>
     </ul>

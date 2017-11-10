@@ -1,47 +1,19 @@
-<ons-page>
+<ons-page ng-controller="EnjoySlopeCtrl"></ng-cont>
   <ons-toolbar>
     <div class="left">
       <ons-back-button>Back</ons-back-button>
     </div>
     <div class="center">坂を楽しむ</div>
   </ons-toolbar>
-  <div>
-    <ul>
-      <section>
-        <li>
-          <ons-button ng-click="myNavi.pushPage('views/RouteByTheme.html');">
-            景色を楽しむ
-          </ons-button>
-        </li>
+  <div style="text-align:center">   
+      <section style="padding: 10px">
+        <ons-list>
+           <ons-list-item modifier="chevron" ng-click="myNavi.pushPage('views/RouteByTheme.html');">景色を楽しむ</ons-list-item>
+           <ons-list-item modifier="chevron" ng-click="myNavi.pushPage('views/RouteByTheme.html');">季節を楽しむ</ons-list-item>
+           <ons-list-item modifier="chevron" ng-click="myNavi.pushPage('views/RouteByTheme.html');">歴史を楽しむ</ons-list-item>
+           <ons-list-item modifier="chevron" ng-click="myNavi.pushPage('views/RouteByTheme.html');">地形を楽しむ</ons-list-item>
+           <ons-list-item modifier="chevron" ng-click="myNavi.pushPage('views/RouteByTheme.html');">めずらしい坂</ons-list-item>
+        </ons-list>       
       </section>
-      <section>
-        <li>
-          <ons-button ng-click="myNavi.pushPage('views/RouteByTheme.html');">
-            景色を楽しむ
-          </ons-button>
-        </li>
-      </section>
-      <section>
-        <li>
-          <ons-button ng-click="myNavi.pushPage('views/RouteByTheme.html');">
-            景色を楽しむ
-          </ons-button>
-        </li>
-      </section>
-      <section>
-        <li>
-          <ons-button ng-click="myNavi.pushPage('views/RouteByTheme.html');">
-            景色を楽しむ
-          </ons-button>
-        </li>
-      </section>
-      <section>
-        <li>
-          <ons-button ng-click="myNavi.pushPage('views/RouteByTheme.html');">
-            景色を楽しむ
-          </ons-button>
-        </li>
-      </section>
-    </ul>
   </div>
 </ons-page>
