@@ -10,6 +10,9 @@ div.GMap {
     height:40%;
 }
 
+li { 
+    list-style-type: none;   
+
 .table {
     display : table;
 }
