@@ -1,4 +1,4 @@
-<ons-page>
+<ons-page ng-controller="RouteDetailsCtrl">
   <ons-toolbar>
     <div class="left">
       <ons-back-button>Back</ons-back-button>
@@ -6,30 +6,39 @@
     <div class="center">ルート詳細</div>
   </ons-toolbar>
   <div>
-    <div>○○周辺</div>
-    <div class="GMap">Googleマップ出す</div>
-    <div>所要時間：3時間</div>
-    <div>消費カロリー</div>
-    <div>Total筋肉疲労度；XX</div
+    <p style="margin-left:10px;margin-top:10px;">白鳥大橋を眺める</p>
+    <div id="map_canvas1" style="width:85%;height:250px;margin-left:auto;margin-right:auto;margin-bottom:20px;"></div>
+    
+    <div style="margin-left:20px;">
+      <span>所要時間：3時間</span><br />
+      <span>消費カロリー：150Kcal</span><br />
+      <span>Total筋肉疲労度：MAX</span><br />     
+    </div>    
+    
     <ul>
       <li>
         <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">
-          XX坂
+          ➀日本一の坂
         </a>
       </li>
       <li>
         <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">
-          XX坂
+          ➁牛太郎坂
         </a>
       </li>
       <li>
         <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">
-          XX坂
+          ➂仏坂
         </a>
       </li>
       <li>
         <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">
-          XX坂
+          ➃幕西の坂
+        </a>
+      </li>
+      <li>
+        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">
+          ➄問屋の坂
         </a>
       </li>
     </ul>

@@ -1,4 +1,4 @@
-<ons-page>
+<ons-page ng-controller="MyLibraryCtrl">
   <ons-toolbar>
     <div class="left">
       <ons-back-button>Back</ons-back-button>
@@ -6,27 +6,24 @@
     <div class="center">Myライブラリ</div>
   </ons-toolbar>
   <div>
-    <div class="GMap">Googleマップ出す</div>
+    <div id="map_canvas" style="width:85%;height:250px;margin-left:auto;margin-right:auto;margin-top:10px;margin-bottom:20px;"></div>
     <ul>
       <li>
-        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">
-          ○○坂
-        </a>
+        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">➀日本一の坂 </a>
+        <span style="padding-left:10px;">2016-01-10</span>
       </li>
       <li>
-        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">
-          ○○坂
-        </a>
+        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">➁牛太郎坂</a>
       </li>
       <li>
-        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">
-          ○○坂
-        </a>
+        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">➂仏坂</a>
+        <span style="padding-left:58px;">2016-05-15</span>          
+      </li>
+      <li></a>
+        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">➃幕西の坂</a>
       </li>
       <li>
-        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">
-          ○○坂
-        </a>
+        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">➄問屋の坂</a>
       </li>
     </ul>
   </div>

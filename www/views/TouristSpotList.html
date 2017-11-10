@@ -1,23 +1,44 @@
-<ons-page>
+<ons-page ng-controller="TouristSpotListCtrl">
   <ons-toolbar>
     <div class="left">
       <ons-back-button>Back</ons-back-button>
     </div>
     <div class="center">観光地から探す</div>
   </ons-toolbar>
-  <div ng-controller="TouristSpotListCtrl">
-    <section style="padding: 10px">
-      <a ng-click="linkClick();">
-        室蘭港の夜景
-      </a>
-      <img src="img/yakei.png" />
-    </section>
-    <section style="padding: 10px">
-      <a ng-click="linkClick();">
-        室蘭港の夜景
-      </a>
-      <img src="img/yakei.png" />
-    </section>
-    ・・・繰り返し
+  <div>
+   <div class="table">
+      <div class="tr">
+        <div class="td" style="padding-top:10px;">
+          <ons-button modifier="light" ng-click="linkClick();">室蘭港の夜景</ons-button>
+        </div>
+        <div class="td" style="text-align:center">
+          <a href="#"><img src="img/minato.jpg" style="width:90%;height:200px;"/></a>          
+        </div>
+      </div>
+      <div class="tr">
+        <div class="td">
+          <ons-button modifier="light" ng-click="linkClick();">測量山の展望</ons-button>
+        </div>
+        <div class="td" style="text-align:center">
+          <a href="#"><img src="img/hakucho.jpg" style="width:90%;height:200px;"/></a>   
+        </div>
+      </div>
+      <div class="tr">
+        <div class="td">
+          <ons-button modifier="light" ng-click="linkClick();">黒百合咲大黒島</ons-button>
+        </div>
+        <div class="td" style="text-align:center">
+          <a href="#"><img src="img/daikokuto.jpg" style="width:90%;height:200px;"/></a>   
+        </div>
+      </div>
+      <div class="tr">
+        <div class="td">
+          <ons-button modifier="light" ng-click="linkClick();">襟裳岬の景観</ons-button>
+        </div>
+        <div class="td" style="text-align:center">
+          <a href="#"><img src="img/erimomisaki.jpg" style="width:90%;height:200px;"/></a>   
+        </div>
+      </div>
+    </div>
   </div>
 </ons-page>

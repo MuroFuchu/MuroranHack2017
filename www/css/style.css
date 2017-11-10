@@ -12,6 +12,7 @@ div.GMap {
 
 li { 
     list-style-type: none;   
+    margin-bottom:7px;
 
 .table {
     display : table;

@@ -1,6 +1,5 @@
 app.controller('TouristSpotDetailsCtrl', function($scope){
-    $scope.MainMenuList = null;
-    
+        
     $scope.init = function(){
         //Google mapの設定
         var mapOptions = {           
