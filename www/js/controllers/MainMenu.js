@@ -1,4 +1,4 @@
-app.controller('MainMenuCtrl', function($scope,MainMenuService){
+app.controller('MainMenuCtrl', function($scope,GetJsonService){
     $scope.MainMenuList = null;
     
     $scope.init = function(){
