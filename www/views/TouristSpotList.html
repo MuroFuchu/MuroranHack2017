@@ -6,18 +6,13 @@
     <div class="center">観光地から探す</div>
   </ons-toolbar>
   <div ng-controller="TouristSpotListCtrl">
-    <section style="padding: 10px">
-      <a ng-click="linkClick();">
-        室蘭港の夜景
-      </a>
-      <img src="img/yakei.png" />
-    </section>
-    <section style="padding: 10px">
-      <a ng-click="linkClick();">
-        室蘭港の夜景
-      </a>
-      <img src="img/yakei.png" />
-    </section>
-    ・・・繰り返し
+    <ons-list ng-repeat="s in TouristSpotList">
+      <section>
+        <a ng-click="linkClick(s);">
+          {{s.name.name1.written}}
+          <img src="img/spot/{{s.name.name1.written}}.jpg" />
+        </a>
+      </section>
+    </ons-list>
   </div>
 </ons-page>

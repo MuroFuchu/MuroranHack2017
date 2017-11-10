@@ -9,11 +9,9 @@ app.factory('GetJsonService', function($http){
         return data;
       }).error(function(data, status, headers, config) {
         console.log("JSON取得エラー：" + url);
-        /*
         console.log(data);
         console.log(status);
         console.log(headers);
-        */
       });
   };
   return service;

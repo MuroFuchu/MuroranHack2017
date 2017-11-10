@@ -1,13 +1,13 @@
-app.controller('TouristSpotListCtrl', function($scope){
-   
-    //$scope.MainMenuList = null;
+app.controller('TouristSpotListCtrl', function($scope, GetJsonService){
+    $scope.TouristSpotList = null;
     
     $scope.init = function(){
-        /*$scope.MainMenuList = JSON.parse(JSON.stringify(MainMenuService.getMenus()));
-        for(var i in $scope.MainMenuList){
-            console.log("{0}/{1}".format($scope.MainMenuList[i].page , $scope.MainMenuList[i].text));
-        }
-        */
+        console.log("TouristSpotListCtrl初期化");
+        GetJsonService.getData("TourSpots").then(
+            function(res) {
+                $scope.TouristSpotList = res.data.tourspots;
+            }
+        );
     };
     
     $scope.linkClick = function(){
