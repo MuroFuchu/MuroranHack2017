@@ -1,6 +1,5 @@
 app.controller('MainMenuCtrl', function($scope,MainMenuService){
-   
-   $scope.test = "HELLO";
+
     $scope.MainMenuList = null;
     
     $scope.init = function(){
@@ -12,7 +11,6 @@ app.controller('MainMenuCtrl', function($scope,MainMenuService){
     
     $scope.menuClick = function(menu){
         console.log("{0}{1}.htmlに遷移".format(CMN.Path.Views , menu.page));
-        //$scope.ons.navigator.pushPage("{0}{1}.html".format(CMN.Path.Views , menu.page));
         myNavi.pushPage("{0}{1}.html".format(CMN.Path.Views , menu.page));
     };    
     $scope.init();

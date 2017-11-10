@@ -4,8 +4,8 @@ app.factory('MainMenuService', function(){
    service.MainMenus =[
         {"page":"TouristSpotList","text":"観光地から探す"},
         {"page":"EnjoySlope","text":"坂を楽しむ"},
-        {"page":"Exercise","text":"運動する"},
-        {"page":"MyLibrary","text":"Myライブラリ"}
+        {"page":"Exercise","text":"運動する"}
+      //  {"page":"MyLibrary","text":"Myライブラリ"}
     ];
     
    service.getMenus = function(){  
