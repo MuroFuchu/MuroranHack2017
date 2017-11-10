@@ -9,3 +9,19 @@ div.GMap {
     width:100%;
     height:40%;
 }
+
+.table {
+    display : table;
+}
+
+.tr {
+    display : table-row;
+}
+
+.tr > div {
+    display : table-cell;
+}
+
+.td {
+    display : table-cell;
+}
