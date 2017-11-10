@@ -16,6 +16,7 @@ CMN.Path.Img.Spot = "img/spot/";
 /// 画面遷移
 CMN.Navi = {};
 CMN.Navi.BackMainMenu = function() {
+    console.log("メインメニューに戻る");
     myNavi.resetToPage("{0}MainMenu.html", CMN.Path.Views);
 }
 
