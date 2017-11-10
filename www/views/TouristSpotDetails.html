@@ -9,40 +9,35 @@
     <p style="margin-left:10px;margin-top:10px;">室蘭港の夜景</p>
     
     <div>
-    
-    
-      <span>
-        コメント
-      </span>
-      <img src="img/minato.jpg" style="width:200px;height;150px;" />
+     <table>
+        <tr>
+     		<td style="width:55%">
+             <span>室蘭港は内浦湾東端に位置しており、絵鞆半島によって太平洋から遮蔽し、天然の入り江を形成する良港になっている。</span>                
+            </td>
+            <td style="width:45%"><img src="img/minato.jpg" style="width:100%;height;100%;" /></td>
+     	</tr>
+     </table>
     </div>
-    <ons-button>もっと読む</ons-button>
+
+    <ons-button style="margin-top:10px;margin-bottom:15px;;margin-left:10px;">もっと読む</ons-button>
     <!-- コメントをポップアップ？ -->
     <div>
-      <div>■近くのおすすめ坂</div>
-      <ul>
-        <li>
-          <section>
-            <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">
-              <span>○○坂：3パン</span>
-            </a>
-          </section>
-        </li>
-        <li>
-          <section>
-            <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">
-              <span>○○坂：3パン</span>
-            </a>
-          </section>
-        </li>
-        <li>
-          <section>
-            <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">
-              <span>○○坂：3パン</span>
-            </a>
-          </section>
-        </li>
-      </ul>
+      <div style="margin-left:10px;">■近くのおすすめ坂</div>
+      
+    <ul>
+      <li>
+        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">➀日本一の坂 </a>
+        <span style="margin-left:10px;">2パン</span>
+      </li>
+      <li>
+        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">➁牛太郎坂 </a>
+        <span style="margin-left:25px;">4パン</span>    
+      </li>
+      <li>
+        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">➂仏坂 </a>
+        <span style="margin-left:57px;">1パン</span>   
+      </li>
+    </ul>
     </div>
     <div id="map_canvas" style="width:85%;height:250px;margin-left:auto;margin-right:auto;margin-bottom:20px;"></div>
   </div>
