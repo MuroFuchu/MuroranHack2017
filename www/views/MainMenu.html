@@ -1,0 +1,17 @@
+<ons-page>
+  <ons-toolbar>
+    <div class="center">メインメニュー</div>
+  </ons-toolbar>
+  <div style="text-align:center" ng-controller="MainMenuCtrl">   
+      <section style="padding: 10px">
+        <ons-list ng-repeat="m in MainMenuList">
+           <ons-list-item modifier="chevron" ng-click="menuClick(m);">{{m.text}}</ons-list-item>
+        </ons-list>       
+      </section>
+  </div>
+  <ons-bottom-toolbar style="text-align:center">
+     <ons-button modifier="light" ng-click="" disabled="true">坂を登録 </ons-button>
+     <ons-button modifier="light" ng-click="myNavi.pushPage('views/MyLibrary.html')">Myライブラリ</ons-button>
+  </ons-bottom-toolbar>
+</ons-page>
+

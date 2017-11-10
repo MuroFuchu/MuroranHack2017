@@ -12,4 +12,19 @@ div.GMap {
 
 li { 
     list-style-type: none;   
+
+.table {
+    display : table;
+}
+
+.tr {
+    display : table-row;
+}
+
+.tr > div {
+    display : table-cell;
+}
+
+.td {
+    display : table-cell;
 }

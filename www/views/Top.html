@@ -2,16 +2,28 @@
   <ons-toolbar>
     <div class="center">室蘭百名坂</div>
   </ons-toolbar>
-  <div style="text-align:center" ng-controller="MainMenuCtrl">   
-      <section style="padding: 10px">
-        <ons-list ng-repeat="m in MainMenuList">
-           <ons-list-item modifier="chevron" ng-click="menuClick(m);">{{m.text}}</ons-list-item>
-        </ons-list>       
-      </section>
+  <div>
+    <div>
+      <img src="img/yakei.png" />
+    </div>
+    <div class="table">
+      <div class="tr">
+        <div>
+          <ons-button modifier="light" ng-click="myNavi.pushPage('views/MainMenu.html')" >日本語</ons-button>
+        </div>
+        <div>
+          <ons-button modifier="light" ng-click=""  disabled="true">English</ons-button>
+        </div>
+      </div>
+      <div class="tr">
+        <div>
+          <ons-button modifier="light" ng-click=""  disabled="true">中文(簡体)</ons-button>
+        </div>
+        <div>
+          <ons-button modifier="light" ng-click=""  disabled="true">한국어</ons-button>
+        </div>
+      </div>
+    </div>
   </div>
-  <ons-bottom-toolbar style="text-align:center">
-     <ons-button modifier="light" ng-click="" disabled="true">坂を登録 </ons-button>
-     <ons-button modifier="light" ng-click="myNavi.pushPage('views/MyLibrary.html')">Myライブラリ</ons-button>
-  </ons-bottom-toolbar>
 </ons-page>
 
