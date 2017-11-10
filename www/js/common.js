@@ -13,6 +13,13 @@ CMN.Path.Img.Slope = "img/slope/";
 CMN.Path.Img.Spot = "img/spot/";
 
 ///////////////////////////////////////////
+/// 画面遷移
+CMN.Navi = {};
+CMN.Navi.BackMainMenu = function() {
+    myNavi.resetToPage("{0}MainMenu.html", CMN.Path.Views);
+}
+
+///////////////////////////////////////////
 /// Format
 if (String.prototype.format == undefined) {
     String.prototype.format = function (arg) {
