@@ -24,7 +24,7 @@ app.controller('TouristSpotListCtrl', function($scope, GetJsonService){
         console.log("詳細：{0}".format(spot.name.name1.written));        
         myNavi.pushPage(
             "{0}{1}.html".format(CMN.Path.Views , link),
-            {spot : spot}
+            {data:spot}
         );
     };    
     $scope.init();
