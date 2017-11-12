@@ -1,6 +1,7 @@
-app.controller('TouristSpotDetailsCtrl', function($scope){
+app.controller('TouristSpotDetailsCtrl', function($scope, GoogleMapService){
     $scope.spot = {};   //  観光地JSON
     $scope.desc = "";   //  説明
+    $scope.map = null;
     
     $scope.init = function(){
         //パラメータ取得
@@ -14,8 +15,7 @@ app.controller('TouristSpotDetailsCtrl', function($scope){
         } else {
             console.log("パラメータ取得失敗"); 
         }
-        
-        //Google mapの設定
+
         var mapOptions = {           
               center: new google.maps.LatLng(42.329000, 140.98953),             
               zoom: 12,
@@ -23,9 +23,15 @@ app.controller('TouristSpotDetailsCtrl', function($scope){
               mapTypeId: google.maps.MapTypeId.ROADMAP
             };       
 
-        var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);     
-        var myLatlng = new google.maps.LatLng(42.3223,140.958258);
-        $scope.markToMap("測量山", myLatlng, map);      
+        //Googleマップ設定
+        $scope.map = GoogleMapService.getMap(
+            document.getElementById("map_canvas") , 
+            $scope.spot.name.name1.written,
+            GoogleMapService.getLatLng(
+                $scope.spot.place.coordinates.latitude,
+                $scope.spot.place.coordinates.longitude
+            )
+        );
     };
     
     $scope.getShortDesc = function(){
@@ -36,20 +42,19 @@ app.controller('TouristSpotDetailsCtrl', function($scope){
         
         return ret;
     }
-     
-        
-    $scope.markToMap = function(name, position, map){
-        var marker = new google.maps.Marker({
-            position: position,
-            title:name
-          });
     
-          marker.setMap(map);
-          google.maps.event.addListener(marker, 'click', function() {
-                  var infowindow = new google.maps.InfoWindow({ content:marker.title });
-                  infowindow.open(map,marker);
-          });
-    };
+    $scope.clickReadMoreDesc = function(){
+        ons.notification.alert({
+            message: $scope.desc,
+            // もしくはmessageHTML: '<div>HTML形式のメッセージ</div>',
+            title: null,
+            buttonLabel: '閉じる',
+            animation: 'default', // もしくは'none'
+            // modifier: 'optional-modifier'
+            callback: function() {
+            }
+        });        
+    }
     
     $scope.init();
 });

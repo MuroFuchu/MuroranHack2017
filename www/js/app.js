@@ -10,7 +10,8 @@ function importJS() {
         'js/controllers/SlopeDetails.js',
         'js/controllers/TouristSpotDetails.js',
         'js/controllers/TouristSpotList.js',
-        'js/services/GetJsonService.js'
+        'js/services/GetJsonService.js',
+        'js/services/GoogleMapService.js'
     );
     for (var i=0; i < scripts.length; i++) {
         document.write('<script type="text/javascript" src="' +scripts[i] +'"></script>');
