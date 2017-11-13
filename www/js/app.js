@@ -11,6 +11,7 @@ function importJS() {
         'js/controllers/TouristSpotDetails.js',
         'js/controllers/TouristSpotList.js',
         'js/services/GetJsonService.js',
+        'js/services/GoogleMapService.js',
         'js/services/openfb.js'
     );
     for (var i=0; i < scripts.length; i++) {
