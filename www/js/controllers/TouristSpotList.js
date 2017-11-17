@@ -8,14 +8,16 @@ app.controller('TouristSpotListCtrl', function($scope, GetJsonService){
                 $scope.TouristSpotList = res.data.tourspots;
                 for(var i in $scope.TouristSpotList) {
                     var spot = $scope.TouristSpotList[i];
-                    console.log("ID:{0}/{1}".format(
+                    console.log("ID:{0}/{1}/{2}:{3}".format(
                         spot.mng.refbase , 
-                        spot.name.name1.written
+                        spot.name.name1.written,
+                        spot.place.coordinates.latitude,
+                        spot.place.coordinates.longitude
                         )
                     );
                 }
             }
-        );
+        );        
     };
     
     $scope.linkClick = function(spot){

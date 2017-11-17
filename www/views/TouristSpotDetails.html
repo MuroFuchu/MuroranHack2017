@@ -28,18 +28,36 @@
       <div style="margin-left:10px;">■近くのおすすめ坂</div>
       
     <ul>
+      <li style="vertical-align middle" ng-repeat="s in slopes">
+        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">{{s.SlopeName}}</a>
+        <img style="width:28px ; height:28px;" src="img/icon/118444.png" />
+        <img style="width:28px ; height:28px;" src="img/icon/146165r.png" />
+        <img style="width:28px ; height:28px;" src="img/icon/154596b.png" />
+        <img style="width:28px ; height:28px;" src="img/icon/105118y.png" />
+        <img style="width:28px ; height:28px;" src="img/icon/124514b.png" />
+      </li>
+      <!--
       <li>
-        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">➀日本一の坂 </a>
-        <span style="margin-left:10px;">2パン</span>
+        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">➁牛太郎坂 </a>
+        <span style="margin-left:25px;">4パン</span>    
+        <img style="width:128px ; height:28px;" src="img/notreached.png" />
       </li>
       <li>
         <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">➁牛太郎坂 </a>
         <span style="margin-left:25px;">4パン</span>    
+        <img style="width:128px ; height:28px;" src="img/CLEAR.png" />
+      </li>
+      <li>
+        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">➁牛太郎坂 </a>
+        <span style="margin-left:25px;">4パン</span>    
+        <img style="width:128px ; height:28px;" src="img/CLEARKING.png" />
       </li>
       <li>
         <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">➂仏坂 </a>
         <span style="margin-left:57px;">1パン</span>   
+        <img style="width:28px ; height:28px;" src="img/pan.png" />
       </li>
+      -->
     </ul>
     </div>
     <div id="map_canvas" style="width:85%;height:250px;margin-left:auto;margin-right:auto;margin-bottom:20px;"></div>

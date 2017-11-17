@@ -1,7 +1,8 @@
-app.controller('TouristSpotDetailsCtrl', function($scope, GoogleMapService){
+app.controller('TouristSpotDetailsCtrl', function($scope, GoogleMapService, DbAccessService){
     $scope.spot = {};   //  観光地JSON
     $scope.desc = "";   //  説明
     $scope.map = null;
+    $scope.slopes = null;
     
     $scope.init = function(){
         //パラメータ取得
@@ -16,13 +17,6 @@ app.controller('TouristSpotDetailsCtrl', function($scope, GoogleMapService){
             console.log("パラメータ取得失敗"); 
         }
 
-        var mapOptions = {           
-              center: new google.maps.LatLng(42.329000, 140.98953),             
-              zoom: 12,
-              //地図のタイプを指定
-              mapTypeId: google.maps.MapTypeId.ROADMAP
-            };       
-
         //Googleマップ設定
         $scope.map = GoogleMapService.getMap(
             document.getElementById("map_canvas") , 
@@ -32,6 +26,16 @@ app.controller('TouristSpotDetailsCtrl', function($scope, GoogleMapService){
                 $scope.spot.place.coordinates.longitude
             )
         );
+        
+        // 坂マスタ関連処理
+        var slopeParams = {
+            latitude : Number($scope.spot.place.coordinates.latitude) ,
+            longitude : Number($scope.spot.place.coordinates.longitude)
+        };
+        
+        DbAccessService.GetSlope(slopeParams).then(function(rows) {
+            $scope.slopes = rows;
+        });
     };
     
     $scope.getShortDesc = function(){
