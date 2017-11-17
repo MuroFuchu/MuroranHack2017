@@ -35,7 +35,64 @@ app.controller('TouristSpotDetailsCtrl', function($scope, GoogleMapService, DbAc
         
         DbAccessService.GetSlope(slopeParams).then(function(rows) {
             $scope.slopes = rows;
+            
+            for(var i in $scope.slopes){
+                var idx = Number(i)+1;
+                var slope = $scope.slopes[i];
+                
+                GoogleMapService.markToMap(
+                    slope.SlopeName,
+                    String(idx),
+                    GoogleMapService.getLatLng(
+                        slope.Latitude,
+                        slope.Longitude
+                    ),
+                    $scope.map
+                );
+            }
         });
+    };
+    
+    $scope.getIcons = function(slope){
+        var icons = [];
+        
+        // 景色
+        if(slope.SceneryFlg != "0"){
+            console.log("景色");
+            icons.push(CMN.Icon.Scenery);
+        }
+        // 季節
+        if(slope.SceneryFlg != "0"){
+            console.log("季節");
+            switch (slope.SceneryFlg){
+                case 1:
+                    icons.push(CMN.Icon.Season.Spring);
+                    break;
+                case 2:
+                    icons.push(CMN.Icon.Season.Summer);
+                    break;
+                case 3:
+                    icons.push(CMN.Icon.Season.Fall);
+                    break;
+                case 4:
+                    icons.push(CMN.Icon.Season.Winter);
+                    break;
+            }
+        }
+        // 歴史
+        if(slope.SceneryFlg != "0"){
+            //icons.push("");
+        }
+        // 地形
+        if(slope.SceneryFlg != "0"){
+            //icons.push("");
+        }
+        // レア
+        if(slope.SceneryFlg != "0"){
+            //icons.push("");
+        }
+        
+        return icons;
     };
     
     $scope.getShortDesc = function(){
@@ -45,7 +102,7 @@ app.controller('TouristSpotDetailsCtrl', function($scope, GoogleMapService, DbAc
         }
         
         return ret;
-    }
+    };
     
     $scope.clickReadMoreDesc = function(){
         ons.notification.alert({
@@ -58,7 +115,7 @@ app.controller('TouristSpotDetailsCtrl', function($scope, GoogleMapService, DbAc
             callback: function() {
             }
         });        
-    }
+    };
     
     $scope.init();
 });
