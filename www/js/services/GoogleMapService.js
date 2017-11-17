@@ -7,7 +7,7 @@ app.factory('GoogleMapService', function(){
         
         if(title !== undefined) {
             console.log("初期ポジションマーキング");
-            service.markToMap(title, position, map);
+            service.markToMap(title, null, position, map);
         }
         
         return map; 
@@ -26,9 +26,10 @@ app.factory('GoogleMapService', function(){
         return new google.maps.LatLng(latitude,longitude);        
     };
     
-    service.markToMap = function(name, position, map){
+    service.markToMap = function(name, label, position, map){
         var marker = new google.maps.Marker({
             position: position,
+            label: label,
             title:name
         });
     

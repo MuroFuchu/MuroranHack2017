@@ -13,6 +13,19 @@ CMN.Path.Img.Slope = "img/slope/";
 CMN.Path.Img.Spot = "img/spot/";
 
 ///////////////////////////////////////////
+//アイコン
+CMN.Icon = new Object();
+CMN.Icon.Scenery = "keshiki";
+CMN.Icon.Season = new Object();
+CMN.Icon.Season.Spring = "haru";
+CMN.Icon.Season.Summer = "matsu";
+CMN.Icon.Season.Fall = "aki";
+CMN.Icon.Season.Winter = "fuyu";
+CMN.Icon.History = "rekishi";
+CMN.Icon.Geography = "chikei";
+CMN.Icon.Rare = "mezurashii";
+
+///////////////////////////////////////////
 /// 画面遷移
 CMN.Navi = {};
 CMN.Navi.BackMainMenu = function() {
