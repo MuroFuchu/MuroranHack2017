@@ -1,3 +1,4 @@
+
 <ons-page ng-controller="SlopeDetailsCtrl">
   <ons-toolbar>
     <div class="left">
@@ -10,19 +11,27 @@
   </ons-toolbar>
   <div>
     <div style="margin-top:10px;margin-bottom:10px;margin-left:10px;">
-      <span>1：日本一の坂</span>
+      <span>{{GetCaption()}}</span>
       <ons-button ng-click="" style="margin-left:30px;">制覇!</ons-button>
-      <ons-button ng-click="" style="margin-left:10px;">投稿</ons-button>
-      <ons-button ng-click="twitterPop()">Twitterで投稿する</ons-button>
-      <ons-button ng-click="facebookPop()">Facebookで投稿する</ons-button>
+      <ons-button ng-click="show('list.html')" style="margin-left:10px;">投稿</ons-button>
     </div>
     
     <div style="margin-left:10px;">
       <div id="status"></div>
-      <div>icon</div>
-      <div>筋肉疲労度：３パン</div>
-      <div style="margin-bottom:10px;">icon</div>
+      <div>
+        <span ng-repeat="icon in getIcons(slope)">
+          <img style="width:28px ; height:28px;" src="img/icon/{{icon}}.png" />
+        </span>
+      </div>
+      <div>筋肉疲労度：{{slope.Pan}}パン</div>
+      <div style="margin-bottom:10px;">
+        <span ng-repeat="pan in getPanIcon() track by $index">
+          <img style="width:28px ; height:28px;" src="img/icon/{{pan}}.png" />
+        </span>
+      </div>
       <img src="img/nihonichi.jpg"/ style="width:95%;height:200px;margin-left:auto;margin-right:auto;margin-bottom:5px;">
+      <div>{{slope.Explanation}}</div>
+      <!--
       <div>
       　古地図の中には「四号道」という表記もあるそうだが、坂自体はいつどのようにできたか不明という。
       　一説では、北炭が1900年頃に海岸町一帯を埋め立てた際、上下の道をつなぐ坂が設けられたとしている。
@@ -35,7 +44,8 @@
         妻が人殺しと口走ってしまったことと、別件で張り込み中の刑事が同店を訪れるようになったことから、殺人がばれたと思い自殺してしまう、
         という話も残されている。その坂の名前は、事件を風化させぬよう呼ばれるようになったとも考えられている。
         坂の名前は、何かが日本一なのではなく、日本一という名前のお店が由来だったのだ。
-      <div>
+      </div>
+      -->
       <div style="border-bottom:0.5px solid grey;margin-top:10px;"></div>
       <div style="margin-top:10px;">
         <span>名無しさん</span><span style="padding-left;30px;">2017-01-02</span>         
@@ -44,4 +54,16 @@
     </div>
     
   </div>
+  
+<ons-template id="list.html">
+  <ons-dialog var="dialog" cancelable>
+    <ons-list>
+      <ons-list-item modifier="tappable">
+        <ons-button ng-click="twitterPop()">Twitterで投稿する</ons-button>
+      </ons-list-item>
+      <ons-list-item modifier="tappable">
+        <ons-button ng-click="facebookPop()">Facebookで投稿する</ons-button>
+      </ons-list-item>
+    </ons-list>
+  </ons-dialog> 
 </ons-page>

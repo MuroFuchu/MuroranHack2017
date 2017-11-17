@@ -24,6 +24,48 @@ CMN.Icon.Season.Winter = "fuyu";
 CMN.Icon.History = "rekishi";
 CMN.Icon.Geography = "chikei";
 CMN.Icon.Rare = "mezurashii";
+CMN.Icon.Pan = "pan";
+CMN.Icon.PanGray = "pan_gray";
+
+CMN.Icon.Get = function(slope){
+    var icons = [];
+    
+    // 景色
+    if(slope.SceneryFlg != "0"){
+        icons.push(CMN.Icon.Scenery);
+    }
+    // 季節
+    if(slope.SceneryFlg != "0"){
+        switch (slope.SceneryFlg){
+            case "1":
+                icons.push(CMN.Icon.Season.Spring);
+                break;
+            case "2":
+                icons.push(CMN.Icon.Season.Summer);
+                break;
+            case "3":
+                icons.push(CMN.Icon.Season.Fall);
+                break;
+            case "4":
+                icons.push(CMN.Icon.Season.Winter);
+                break;
+        }
+    }
+    // 歴史
+    if(slope.SceneryFlg != "0"){
+        icons.push(CMN.Icon.History);
+    }
+    // 地形
+    if(slope.SceneryFlg != "0"){
+        icons.push(CMN.Icon.Geography);
+    }
+    // レア
+    if(slope.SceneryFlg != "0"){
+        icons.push(CMN.Icon.Rare);
+    }
+    
+    return icons;
+};
 
 ///////////////////////////////////////////
 /// 画面遷移
