@@ -5,28 +5,30 @@
     </div>
     <div class="center">テーマ別のルートを表示</div>
     <div class="right">
-      <ons-button onclick="CMN.Navi.BackMainMenu();">Menu</ons-button>
+      <ons-button onclick="CMN.Navi.BackMainMenu();" style="margin-top:-20px;margin-right:15px;"><ons-icon icon="fa-reply-all"></ons-icon></ons-button>
     </div>
   </ons-toolbar>
   <div>
     <p style="margin-left:10px;margin-top:10px;">景色を楽しむ</p>
-    <div id="map_canvas" style="width:85%;height:250px;margin-left:auto;margin-right:auto;margin-bottom:20px;"></div>
-    <ul>
-      <li>
-        <a ng-click="myNavi.pushPage('views/RouteDetails.html');">
-          ➀大谷高校周辺：3パン
-        </a>
-      </li>
-      <li>
-        <a ng-click="myNavi.pushPage('views/RouteDetails.html');">
-          ➁白鳥大橋を眺める：4パン
-        </a>
-      </li>
-      <li>
-        <a ng-click="myNavi.pushPage('views/RouteDetails.html');">
-          ➂塩見展望台：1パン
-        </a>
-      </li>
-    </ul>
+    <div id="map_canvas" style="width:85%;height:250px;margin-left:auto;margin-right:auto;margin-bottom:20px;"></div>    
+     <section>
+        <ons-list>
+          <ons-list-item modifier="chevron" ng-click="myNavi.pushPage('views/RouteDetails.html');">
+             <img src="img/icon/mark1.png" height="48px" width="48px" style="padding-right:10px;" />
+             <span style="width:200px;">大谷高校周辺</span>             
+             <span>3パン</span>
+          </ons-list-item>
+          <ons-list-item modifier="chevron" ng-click="myNavi.pushPage('views/RouteDetails.html');">
+             <img src="img/icon/mark2.png" height="48px" width="48px" style="padding-right:10px;" />
+             <span style="width:200px;">白鳥大橋を眺める</span>             
+             <span>4パン</span>
+          </ons-list-item>
+          <ons-list-item modifier="chevron" ng-click="myNavi.pushPage('views/RouteDetails.html');">
+             <img src="img/icon/mark3.png" height="48px" width="48px" style="padding-right:10px;" />
+             <span style="width:200px;">見展望台</span>             
+             <span>1パン</span>
+          </ons-list-item>
+        </ons-list>       
+     </section>
   </div>
 </ons-page>
