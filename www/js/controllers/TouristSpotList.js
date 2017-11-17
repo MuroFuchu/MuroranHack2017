@@ -9,6 +9,7 @@ app.controller('TouristSpotListCtrl', function($scope,$http,$q,GetJsonService){
                 $scope.TouristSpotList = res.data.tourspots;
                 for(var i in $scope.TouristSpotList) {
                     var spot = $scope.TouristSpotList[i];
+                    /*
                     console.log("ID:{0}/{1}/{2}:{3}".format(
                         spot.mng.refbase , 
                         spot.name.name1.written,
@@ -16,6 +17,7 @@ app.controller('TouristSpotListCtrl', function($scope,$http,$q,GetJsonService){
                         spot.place.coordinates.longitude
                         )
                     );
+                    */
                 }   
 
                 /* 画像が存在しない場合は代替画像を設定する  */
@@ -44,8 +46,8 @@ app.controller('TouristSpotListCtrl', function($scope,$http,$q,GetJsonService){
     
     $scope.linkClick = function(spot){
         var link = "TouristSpotDetails";
-        console.log("{0}{1}.htmlに遷移".format(CMN.Path.Views , link));
-        console.log("詳細：{0}".format(spot.name.name1.written));        
+        //console.log("{0}{1}.htmlに遷移".format(CMN.Path.Views , link));
+        //console.log("詳細：{0}".format(spot.name.name1.written));        
         myNavi.pushPage(
             "{0}{1}.html".format(CMN.Path.Views , link),
             {data:spot}

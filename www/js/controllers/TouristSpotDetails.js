@@ -39,7 +39,7 @@ app.controller('TouristSpotDetailsCtrl', function($scope, GoogleMapService, DbAc
             for(var i in $scope.slopes){
                 var idx = Number(i)+1;
                 var slope = $scope.slopes[i];
-                
+                //console.log("マーカー設置：" + slope.SlopeName);
                 GoogleMapService.markToMap(
                     slope.SlopeName,
                     String(idx),

@@ -83,11 +83,11 @@ app.factory('DbAccessService', function($q){
     };
     
     service.openDb = function (){
-        service.db = window.openDatabase("Slope", "", "百名坂", 1024*1024*10);
-        if(service.db.version !== "0.2") {
+        service.db = window.openDatabase("Slope", "", "百名坂", 1024);
+        if(service.db.version == "") {
             console.log('not exist db');
             DbInit();
-            service.db.changeVersion("0.1", "0.2");
+            service.db.changeVersion("", "0.1");
         }else{
             console.log('exist db'); 
         }
@@ -157,12 +157,15 @@ app.factory('DbAccessService', function($q){
                     console.log("後追いバインド");
                     //angular.extend(ret, results.rows);
                     //ret = results.rows;
+                    var ret = [];
                     for(var i in results.rows){
                         var row = results.rows[i];
-                        console.log("{0}:{1}".format(row.SlopeId, row.SlopeName));
+                        if(row.SlopeId !== undefined){
+                            ret.push(row);
+                        }
                     }
                     
-                    deferred.resolve(results.rows);
+                    deferred.resolve(ret);
                 });
             }, 
             function(){
