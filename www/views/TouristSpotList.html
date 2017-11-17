@@ -9,10 +9,10 @@
       <div ng-repeat="spot in TouristSpotList">
         <section ng-click="linkClick(spot);">
           <div style="padding-top:10px;">
-            <ons-button modifier="light" >{{spot.name.name1.written}}</ons-button>
+            <ons-button modifier="light" style="border:0">{{spot.name.name1.written}}</ons-button>
           </div>
           <div style="text-align:center">
-            <a href="#"><img src="img/spot/{{spot.mng.refbase}}.jpg" style="width:90%;height:160px;"/></a>          
+            <a href="#"><img src="img/spot/{{spot.mng.refbase}}" style="width:85%;height:160px;"/></a>      
           </div>
         </section>
       </div>
