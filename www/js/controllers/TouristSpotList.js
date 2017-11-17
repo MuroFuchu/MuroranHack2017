@@ -4,13 +4,16 @@ app.controller('TouristSpotListCtrl', function($scope,$http,$q,GetJsonService){
     $scope.init = function(){
         console.log("TouristSpotListCtrl初期化");
         GetJsonService.getData("TourSpots").then(
-            function(res) {                      
-                     
-                for(var i in res.data.tourspots) {                    
-                    var spot = res.data.tourspots[i];   
-                    console.log("ID:{0}/{1}".format(
+
+            function(res) {
+                $scope.TouristSpotList = res.data.tourspots;
+                for(var i in $scope.TouristSpotList) {
+                    var spot = $scope.TouristSpotList[i];
+                    console.log("ID:{0}/{1}/{2}:{3}".format(
                         spot.mng.refbase , 
-                        spot.name.name1.written
+                        spot.name.name1.written,
+                        spot.place.coordinates.latitude,
+                        spot.place.coordinates.longitude
                         )
                     );
                 }   
@@ -36,7 +39,7 @@ app.controller('TouristSpotListCtrl', function($scope,$http,$q,GetJsonService){
                });           
                deferred.resolve();
             }
-        );
+        );        
     };
     
     $scope.linkClick = function(spot){
