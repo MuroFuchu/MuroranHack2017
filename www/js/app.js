@@ -1,5 +1,6 @@
 function importJS() {  
     var scripts = new Array(
+        'js/controllers/Top.js',
         'js/controllers/MainMenu.js',
         'js/controllers/EnjoySlope.js',
         'js/controllers/Exercise.js',
