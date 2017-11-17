@@ -53,45 +53,7 @@ app.controller('TouristSpotDetailsCtrl', function($scope, GoogleMapService, DbAc
         });
     };
     
-    $scope.getIcons = function(slope){
-        var icons = [];
-        
-        // 景色
-        if(slope.SceneryFlg != "0"){
-            icons.push(CMN.Icon.Scenery);
-        }
-        // 季節
-        if(slope.SceneryFlg != "0"){
-            switch (slope.SceneryFlg){
-                case "1":
-                    icons.push(CMN.Icon.Season.Spring);
-                    break;
-                case "2":
-                    icons.push(CMN.Icon.Season.Summer);
-                    break;
-                case "3":
-                    icons.push(CMN.Icon.Season.Fall);
-                    break;
-                case "4":
-                    icons.push(CMN.Icon.Season.Winter);
-                    break;
-            }
-        }
-        // 歴史
-        if(slope.SceneryFlg != "0"){
-            icons.push(CMN.Icon.History);
-        }
-        // 地形
-        if(slope.SceneryFlg != "0"){
-            icons.push(CMN.Icon.Geography);
-        }
-        // レア
-        if(slope.SceneryFlg != "0"){
-            icons.push(CMN.Icon.Rare);
-        }
-        
-        return icons;
-    };
+    $scope.getIcons = CMN.Icon.Get;
     
     $scope.getShortDesc = function(){
         var ret = $scope.desc;
@@ -114,6 +76,14 @@ app.controller('TouristSpotDetailsCtrl', function($scope, GoogleMapService, DbAc
             }
         });        
     };
+    
+    $scope.linkClick = function(slope){
+        var link = "SlopeDetails";
+        myNavi.pushPage(
+            "{0}{1}.html".format(CMN.Path.Views , link),
+            {data:slope}
+        );
+    };   
     
     $scope.init();
 });

@@ -5,7 +5,7 @@
     </div>
     <div class="center">観光地詳細</div>
     <div class="right">
-      <ons-button onclick="CMN.Navi.BackMainMenu();" style="margin-top:-20px;margin-right:15px;"><ons-icon icon="fa-reply-all"></ons-icon></ons-button>
+      <ons-button onclick="CMN.Navi.BackMainMenu();">Menu</ons-button>
     </div>
   </ons-toolbar>
   <div>
@@ -21,19 +21,18 @@
      	</tr>
      </table>
     </div>
-
-    <ons-button style="margin-top:10px;margin-bottom:15px;;margin-left:10px;" ng-click="clickReadMoreDesc();">もっと読む</ons-button>
-    <!-- コメントをポップアップ？ -->
+    <ons-button style="margin-top:10px;margin-bottom:15px;margin-left:10px;" ng-click="clickReadMoreDesc();">もっと読む</ons-button>
     <div>
       <div style="margin-left:10px;">■近くのおすすめ坂</div>
       
     <ul>
-      <li style="vertical-align middle" ng-repeat="s in slopes">
-        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">{{s.SlopeName}}</a>
-        <span ng-repeat="icon in getIcons(s)">
-            <img style="width:28px ; height:28px;" src="img/icon/{{icon}}.png" />  
-        </span>
-      </li>
+        <li style="vertical-align middle" ng-repeat="(i, s) in slopes">
+            {{i+1}}：
+            <a ng-click="linkClick(s)">{{s.SlopeName}}</a>
+            <span ng-repeat="icon in getIcons(s)">
+                <img style="width:28px ; height:28px;" src="img/icon/{{icon}}.png" />  
+            </span>
+        </li>
     </ul>
     </div>
     <div id="map_canvas" style="width:85%;height:250px;margin-left:auto;margin-right:auto;margin-bottom:20px;"></div>
