@@ -15,15 +15,15 @@ CMN.Path.Img.Spot = "img/spot/";
 ///////////////////////////////////////////
 //アイコン
 CMN.Icon = new Object();
-CMN.Icon.Scenery = "118444";
+CMN.Icon.Scenery = "keshiki";
 CMN.Icon.Season = new Object();
-CMN.Icon.Season.Spring = "146165r";
-CMN.Icon.Season.Summer = "154596b";
-CMN.Icon.Season.Fall = "105118y";
-CMN.Icon.Season.Winter = "124514b";
-CMN.Icon.History = "";
-CMN.Icon.Geography = "";
-CMN.Icon.Rare = "";
+CMN.Icon.Season.Spring = "haru";
+CMN.Icon.Season.Summer = "matsu";
+CMN.Icon.Season.Fall = "aki";
+CMN.Icon.Season.Winter = "fuyu";
+CMN.Icon.History = "rekishi";
+CMN.Icon.Geography = "chikei";
+CMN.Icon.Rare = "mezurashii";
 
 ///////////////////////////////////////////
 /// 画面遷移
