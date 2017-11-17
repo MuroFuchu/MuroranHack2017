@@ -7,26 +7,29 @@
   </ons-toolbar>
   <div>
     <div id="map_canvas" style="width:85%;height:250px;margin-left:auto;margin-right:auto;margin-top:10px;margin-bottom:20px;"></div>
-    <ul>
-      <li>
-        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">➀日本一の坂 </a>
-        <span style="padding-left:10px;">2016-01-10</span>
-        <img style="width:128px ; height:28px;" src="img/CLEAR.png" />
-      </li>
-      <li>
-        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">➁牛太郎坂</a>
-      </li>
-      <li>
-        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">➂仏坂</a>
-        <span style="padding-left:58px;">2016-05-15</span> 
-        <img style="width:128px ; height:28px;" src="img/notreached.png" />         
-      </li>
-      <li>
-        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">➃幕西の坂</a>
-      </li>
-      <li>
-        <a ng-click="myNavi.pushPage('views/SlopeDetails.html');">➄問屋の坂</a>
-      </li>
-    </ul>
+    
+    <section>
+        <ons-list>
+          <ons-list-header>50坂中2坂 制覇中</ons-list-header>
+          <ons-list-item modifier="chevron" ng-click="myNavi.pushPage('views/SlopeDetails.html');">
+             <img src="img/icon/mark1.png" height="48px" width="48px" style="padding-right:10px;" />
+             <span style="width:115px;">日本一の坂</span>                          
+             <img src="img/icon/seiha.png" height="30px" width="125px">
+             <span>2017-11-1</span>            
+          </ons-list-item>
+          
+          <ons-list-item modifier="chevron" ng-click="myNavi.pushPage('views/SlopeDetails.html');">
+             <img src="img/icon/mark2.png" height="48px" width="48px" style="padding-right:10px;" />
+             <span style="width:115px;">牛太郎坂</span>             
+             <img src="img/icon/seiha.png" height="30px" width="125px">
+             <span>2017-12-1</span>
+          </ons-list-item>
+          
+          <ons-list-item modifier="chevron" ng-click="myNavi.pushPage('views/SlopeDetails.html');">
+             <img src="img/icon/mark3.png" height="48px" width="48px" style="padding-right:10px;" />
+             <span style="width:115px;">仏坂</span>                        
+          </ons-list-item>
+        </ons-list>       
+     </section>
   </div>
 </ons-page>
