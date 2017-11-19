@@ -41,6 +41,7 @@ app.factory('DbAccessService', function($q){
                 tx.executeSql("INSERT INTO MstSlope VALUES('028','室蘭工業大学','42.37829','141.02997','水元町11','','','','1','1','1','','0','0')");
                 tx.executeSql("INSERT INTO MstSlope VALUES('029','中島・港北通','42.3565808','141.0110024','中島町1-3','2','','','0','1','0','0','0','0')");
                 tx.executeSql("INSERT INTO MstSlope VALUES('030','製鉄記念病院～天神トンネル','42.358531','141.015573','八丁平4-17','2','','','0','1','0','0','0','0')");
+                /*
                 tx.executeSql("INSERT INTO MstSlope VALUES('031','知利別公園前の坂','42.367338','141.029518','知利別町4丁目','3','','','0','1','0','1','0','0')");
                 tx.executeSql("INSERT INTO MstSlope VALUES('032','楽山','42.360955','141.027007','知利別町2丁目','2','','','0','3','0','0','0','0')");
                 tx.executeSql("INSERT INTO MstSlope VALUES('033','室蘭環状線(工大生殺しの坂)','42.370317','141.027051','天神町１丁目','1','','','0','1','0','0','0','0')");
@@ -62,7 +63,7 @@ app.factory('DbAccessService', function($q){
                 tx.executeSql("INSERT INTO MstSlope VALUES('049','東陽軒跡地','42.319671','140.970753','中央町1丁目2','1','','','1','1','1','0','1','0')");
                 tx.executeSql("INSERT INTO MstSlope VALUES('050','本輪西駅','42.35894','140.977675','本輪西町1丁目','1','','','1','1','1','0','0','0')");
                 tx.executeSql("INSERT INTO MstSlope VALUES('051','「海に生くる人々」葉山嘉樹 ','42.323605','140.97486','入江町1丁目','1','','','1','1','1','0','0','0')");
-
+                */
             }, 
             function(){
                 // 失敗時
@@ -84,7 +85,7 @@ app.factory('DbAccessService', function($q){
     
     service.openDb = function (){
         service.db = window.openDatabase("Slope", "", "百名坂", 1024);
-        if(service.db.version == "") {
+        if(service.db.version !== "") {
             console.log('not exist db');
             DbInit();
             service.db.changeVersion("", "0.1");

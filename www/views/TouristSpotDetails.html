@@ -26,7 +26,7 @@
       <div style="margin-left:10px;">■近くのおすすめ坂</div>
       
     <ul>
-        <li style="vertical-align middle" ng-repeat="(i, s) in slopes track by $index">
+        <li style="vertical-align middle" ng-repeat="(i, s) in slopes">
             {{i+1}}：
             <a ng-click="linkClick(s)">{{s.SlopeName}}</a>
             <span ng-repeat="icon in getIcons(s)">

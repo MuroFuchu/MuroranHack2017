@@ -11,7 +11,8 @@ function importJS() {
         'js/controllers/SlopeDetails.js',
         'js/controllers/TouristSpotDetails.js',
         'js/controllers/TouristSpotList.js',
-        'js/services/DbAccessService.js',
+        'js/lib/dexie.js',
+        'js/services/DbAccessService2.js',
         'js/services/GetJsonService.js',
         'js/services/GoogleMapService.js',
         'js/services/openfb.js'
