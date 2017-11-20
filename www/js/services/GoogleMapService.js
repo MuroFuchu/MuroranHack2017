@@ -2,11 +2,11 @@ app.factory('GoogleMapService', function(){
     var service = {}; 
     
     service.getMap = function(ele,title,position){
-        console.log("Map初期化"); 
+        //console.log("Map初期化"); 
         var map = new google.maps.Map(ele, service.getMapOption(position)); 
         
         if(title !== undefined) {
-            console.log("初期ポジションマーキング");
+            //console.log("初期ポジションマーキング");
             service.markToMap(title, null, position, map);
         }
         

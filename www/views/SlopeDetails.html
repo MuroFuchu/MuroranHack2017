@@ -24,7 +24,7 @@
       </div>
       <div>筋肉疲労度：{{slope.Pan}}パン</div>
       <div style="margin-bottom:10px;">
-        <span ng-repeat="pan in getPanIcon() track by $index">
+        <span ng-repeat="pan in getPanIcon(slope.Pan) track by $index">
           <img style="width:28px ; height:28px;" src="img/icon/{{pan}}.png" />
         </span>
       </div>

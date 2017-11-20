@@ -67,6 +67,20 @@ CMN.Icon.Get = function(slope){
     return icons;
 };
 
+CMN.Icon.GetPan = function(panNum){
+    //var panNum = Number($scope.slope.Pan);
+    var pans = [];
+    
+    for(var i = 1 ; i <= 5 ; i++){
+        if(i <= panNum){
+            pans.push(CMN.Icon.Pan);
+        } else {
+            pans.push(CMN.Icon.PanGray);
+        }
+    }
+    return pans;
+};
+
 ///////////////////////////////////////////
 /// 画面遷移
 CMN.Navi = {};
