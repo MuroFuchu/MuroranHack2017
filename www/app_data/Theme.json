@@ -1,0 +1,7 @@
+[
+{"ThemeId" :"Scenery","Display" :"景色を楽しむ","icon" :"keshiki"},
+{"ThemeId" :"Season","Display" :"季節を楽しむ","icon" :"fuyu"},
+{"ThemeId" :"History","Display" :"歴史を楽しむ","icon" :"rekishi"},
+{"ThemeId" :"Geography","Display" :"地形を楽しむ","icon" :"chikei"},
+{"ThemeId" :"Rare","Display" :"めずらしい坂","icon" :"mezurashii"}
+]

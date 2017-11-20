@@ -3,7 +3,7 @@
     <div class="left">
       <ons-back-button>Back</ons-back-button>
     </div>
-    <div class="center">テーマ別のルートを表示</div>
+    <div class="center">テーマ別の坂を表示</div>
     <div class="right">
       <ons-button onclick="CMN.Navi.BackMainMenu();" style="margin-top:-20px;margin-right:15px;"><ons-icon icon="fa-reply-all"></ons-icon></ons-button>
     </div>
@@ -15,10 +15,13 @@
     <div id="map_canvas" style="width:85%;height:250px;margin-left:auto;margin-right:auto;margin-bottom:20px;"></div>    
      <section>
         <ons-list>
-          <ons-list-item modifier="chevron" ng-click="myNavi.pushPage('views/RouteDetails.html');">
-             <img src="img/icon/mark1.png" height="48px" width="48px" style="padding-right:10px;" />
-             <span style="width:200px;">大谷高校周辺</span>  
-          </ons-list-item>
+            <div ng-repeat="(i,slope) in slopes">
+                <ons-list-item modifier="chevron" ng-click="myNavi.pushPage('views/RouteDetails.html');">
+                    <!--<img src="img/icon/mark1.png" height="48px" width="48px" style="padding-right:10px;" />-->
+                    <span style="width:200px;">{{i+1}}:{{slope.SlopeName}}</span>  
+                </ons-list-item>  
+            </div>
+        <!--
           <ons-list-item modifier="chevron" ng-click="myNavi.pushPage('views/RouteDetails.html');">
              <img src="img/icon/mark2.png" height="48px" width="48px" style="padding-right:10px;" />
              <span style="width:200px;">白鳥大橋を眺める</span>  
@@ -27,6 +30,7 @@
              <img src="img/icon/mark3.png" height="48px" width="48px" style="padding-right:10px;" />
              <span style="width:200px;">見展望台</span>    
           </ons-list-item>
+         -->
         </ons-list>       
      </section>
   </div>

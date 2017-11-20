@@ -1,30 +1,40 @@
-app.controller('RouteByThemeCtrl', function($scope,GetJsonService){
+app.controller('RouteByThemeCtrl', function($scope,GoogleMapService, DbAccessService){
+    $scope.Theme = null;
+    $scope.slopes = null;
+    $scope.map = null;
     
-   $scope.init = function(){
-        //Google mapの設定
-        var mapOptions = {           
-              center: new google.maps.LatLng(42.329000, 140.98953),             
-              zoom: 12,
-              //地図のタイプを指定
-              mapTypeId: google.maps.MapTypeId.ROADMAP
-            };       
-
-        var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);     
-        var myLatlng = new google.maps.LatLng(42.3223,140.958258);
-        $scope.markToMap("測量山", myLatlng, map);      
-     };
+    $scope.init = function(){
+        $scope.Theme = $scope.myNavi.topPage.data;
         
-    $scope.markToMap = function(name, position, map){
-        var marker = new google.maps.Marker({
-            position: position,
-            title:name
-          });
-    
-          marker.setMap(map);
-          google.maps.event.addListener(marker, 'click', function() {
-                  var infowindow = new google.maps.InfoWindow({ content:marker.title });
-                  infowindow.open(map,marker);
-          });
+        //Googleマップ設定
+        $scope.map = GoogleMapService.getMap(
+            document.getElementById("map_canvas") , 
+            null,
+            GoogleMapService.getLatLng(
+                "42.3223",
+                "140.958258"
+            )
+        );
+        
+        // テーマ別の坂を取得する。
+        DbAccessService.GetSlopeByTheme($scope.Theme.ThemeId + "Flg").then(function(rows) {
+            $scope.$apply(function(){$scope.slopes = rows});
+            
+            for(var i in $scope.slopes){
+                var idx = Number(i)+1;
+                var slope = $scope.slopes[i];
+                //console.log("マーカー設置：" + slope.SlopeName);
+                GoogleMapService.markToMap(
+                    slope.SlopeName,
+                    String(idx),
+                    GoogleMapService.getLatLng(
+                        slope.Latitude,
+                        slope.Longitude
+                    ),
+                    $scope.map
+                );
+            }
+        });
     };
     
     $scope.init();
