@@ -1,5 +1,5 @@
 [
-    {"page":"TouristSpotList","text":"観光地から探す"},
-    {"page":"EnjoySlope","text":"坂を楽しむ"},
-    {"page":"Exercise","text":"運動する"}
+    {"page":"TouristSpotList","text":"観光地から探す","icon":"kanko.png"},
+    {"page":"EnjoySlope","text":"坂を楽しむ","icon":"tanoshimu.png"},
+    {"page":"Exercise","text":"運動する","icon":"undo.png"}
 ]

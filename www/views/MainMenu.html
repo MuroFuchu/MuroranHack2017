@@ -8,7 +8,7 @@
   <div style="text-align:center" ng-controller="MainMenuCtrl">   
       <section>
         <ons-list ng-repeat="m in MainMenuList">
-           <ons-list-item modifier="chevron" ng-click="menuClick(m);"><img src="img/icon/kanko.png" height="48px" width="48px" style="padding-right:10px;" />{{m.text}}</ons-list-item>
+           <ons-list-item modifier="chevron" ng-click="menuClick(m);"><img src="img/icon/{{m.icon}}" height="48px" width="48px" style="padding-right:10px;" />{{m.text}}</ons-list-item>
         </ons-list>       
       </section>
   </div>

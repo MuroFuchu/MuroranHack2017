@@ -10,7 +10,21 @@
     
     <section>
         <ons-list>
-          <ons-list-header>50坂中2坂 制覇中</ons-list-header>
+          <ons-list-header>50坂中2坂 制覇中</ons-list-header>          
+          <div ng-repeat="(i, slope) in slopes">
+             <ons-list-item modifier="chevron" ng-click="linkClick(slope)">
+             <!--<img src="img/icon/mark1.png" height="48px" width="48px" style="padding-right:10px;" />-->
+             <span style="width:220px;">{{i+1}}：{{slope.SlopeName}}</span>
+             <span style="width:110px;">
+                <span ng-repeat="icon in getIcons(slope)">
+                   <img height="28px" width="28px" src="img/icon/{{icon}}.png" />
+                </span>   
+             </span>    
+             <span ng-if="slope.CompleteFlag==1"><img src="img/icon/seiha.png" height="30px" width="125px"></span>
+             </ons-list-item>
+          </div>
+            
+          <!--
           <ons-list-item modifier="chevron" ng-click="myNavi.pushPage('views/SlopeDetails.html');">
              <img src="img/icon/mark1.png" height="48px" width="48px" style="padding-right:10px;" />
              <span style="width:115px;">日本一の坂</span>                          
@@ -29,6 +43,7 @@
              <img src="img/icon/mark3.png" height="48px" width="48px" style="padding-right:10px;" />
              <span style="width:115px;">仏坂</span>                        
           </ons-list-item>
+          -->
         </ons-list>       
      </section>
   </div>
