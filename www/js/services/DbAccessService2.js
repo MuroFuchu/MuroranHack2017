@@ -19,17 +19,22 @@ app.factory('DbAccessService', function($q, GetJsonService){
             MstSlope: "++SlopeId,SlopeName,Latitude,Longitude,Address,Pan,FiileName,Explanation,SceneryFlg,SeasonFlg,HistoryFlg,GeographyFlg,RareFlg,CompleteFlag"
         });
         //初期化
-        service.db.on("populate", DbInit);
-        
+        service.db.on("populate", DbInit);        
         return;
     };
     
     service.GetSlope = function (){
         if(service.db !== undefined){
             service.openDb();
-        }
-        
+        }        
         return service.db.MstSlope;
+    };
+    
+    service.GetAllSlope = function (){
+        if(service.db !== undefined){
+            service.openDb();
+        }        
+        return service.GetSlope().toArray();
     };
     
     service.GetSlopeByLL = function(latitude, longitude){
@@ -39,15 +44,13 @@ app.factory('DbAccessService', function($q, GetJsonService){
             //.and("Longitude").between(longitude-half,longitude+half);
             .and(function(slope) {
                 return longitude-half <= slope.Longitude && slope.Longitude <= longitude+half;
-            });
-        
+            });        
         return ret.toArray();
     };
     
     service.GetSlopeByPan = function(pan){
         var ret = service.GetSlope()
-            .where("Pan").equals(pan);
-        
+            .where("Pan").equals(pan);        
         return ret.toArray();
     };
     
