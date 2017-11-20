@@ -1,37 +1,51 @@
-app.controller('SlopeByFatigueCtrl', function($scope){
+app.controller('SlopeByFatigueCtrl', function($scope, GoogleMapService, DbAccessService){
     $scope.Pan = null;
+    $scope.map = null;
+    $scope.slopes = null;
     
     $scope.init = function(){
         $scope.Pan = $scope.myNavi.topPage.data;
         
+        //Googleマップ設定
+        $scope.map = GoogleMapService.getMap(
+            document.getElementById("map_canvas") , 
+            null,
+            GoogleMapService.getLatLng(
+                "42.3223",
+                "140.958258"
+            )
+        );
         
-        
-        
-        //Google mapの設定
-        var mapOptions = {           
-              center: new google.maps.LatLng(42.329000, 140.98953),             
-              zoom: 12,
-              //地図のタイプを指定
-              mapTypeId: google.maps.MapTypeId.ROADMAP
-            };       
-
-        var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);     
-        var myLatlng = new google.maps.LatLng(42.3223,140.958258);
-        $scope.markToMap("測量山", myLatlng, map);      
-     };
-        
-    $scope.markToMap = function(name, position, map){
-        var marker = new google.maps.Marker({
-            position: position,
-            title:name
-          });
-    
-          marker.setMap(map);
-          google.maps.event.addListener(marker, 'click', function() {
-                  var infowindow = new google.maps.InfoWindow({ content:marker.title });
-                  infowindow.open(map,marker);
-          });
+        // Pan別の坂を取得する。
+        DbAccessService.GetSlopeByPan(String($scope.Pan)).then(function(rows) {
+            $scope.$apply(function(){$scope.slopes = rows});
+            
+            for(var i in $scope.slopes){
+                var idx = Number(i)+1;
+                var slope = $scope.slopes[i];
+                //console.log("マーカー設置：" + slope.SlopeName);
+                GoogleMapService.markToMap(
+                    slope.SlopeName,
+                    String(idx),
+                    GoogleMapService.getLatLng(
+                        slope.Latitude,
+                        slope.Longitude
+                    ),
+                    $scope.map
+                );
+            }
+        });
     };
+    
+    $scope.linkClick = function(slope){
+        var link = "SlopeDetails";
+        myNavi.pushPage(
+            "{0}{1}.html".format(CMN.Path.Views , link),
+            {data:slope}
+        );
+    };
+     
+    $scope.getIcons = CMN.Icon.Get;
     
     $scope.init();
 });
