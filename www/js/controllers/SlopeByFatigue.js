@@ -47,5 +47,7 @@ app.controller('SlopeByFatigueCtrl', function($scope, GoogleMapService, DbAccess
      
     $scope.getIcons = CMN.Icon.Get;
     
+    $scope.getPanIcon = CMN.Icon.GetPan;
+    
     $scope.init();
 });

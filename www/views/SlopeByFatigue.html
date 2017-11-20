@@ -9,13 +9,19 @@
     </div>
   </ons-toolbar>
   <div>
+  　<p style="margin-left:4px;margin-top:4px;">   
+    <span ng-repeat="pan in getPanIcon(Pan) track by $index">
+        <img height="24px" width="24px" src="img/icon/{{pan}}.png" />
+    </span>
+    </p>
+    <!--
     <p style="margin-left:10px;margin-top:10px;">     
       <span><img src="img/icon/pan.png" height="24px" width="24px"></span>
       <span><img src="img/icon/pan.png" height="24px" width="24px"></span>
       <span><img src="img/icon/pan.png" height="24px" width="24px"></span>
       <span><img src="img/icon/pan_gray.png" height="24px" width="24px"></span>
       <span><img src="img/icon/pan_gray.png" height="24px" width="24px"></span>
-    </p>
+    </p>-->
     <div id="map_canvas" style="width:85%;height:250px;margin-left:auto;margin-right:auto;margin-bottom:20px;"></div>
     
     <section>
