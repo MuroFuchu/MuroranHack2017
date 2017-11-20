@@ -1,7 +1,10 @@
 [
-{"ThemeId" :"Scenery","Display" :"景色を楽しむ","icon" :"keshiki"},
-{"ThemeId" :"Season","Display" :"季節を楽しむ","icon" :"fuyu"},
-{"ThemeId" :"History","Display" :"歴史を楽しむ","icon" :"rekishi"},
-{"ThemeId" :"Geography","Display" :"地形を楽しむ","icon" :"chikei"},
-{"ThemeId" :"Rare","Display" :"めずらしい坂","icon" :"mezurashii"}
+{"ThemeId" :"Scenery","Display" :"景色を楽しむ","icon" :"keshiki","filvalue":"1"},
+{"ThemeId" :"Season","Display" :"春を楽しむ","icon" :"haru","filvalue":"1"},
+{"ThemeId" :"Season","Display" :"夏を楽しむ","icon" :"natsu","filvalue":"2"},
+{"ThemeId" :"Season","Display" :"秋を楽しむ","icon" :"aki","filvalue":"3"},
+{"ThemeId" :"Season","Display" :"冬を楽しむ","icon" :"fuyu","filvalue":"4"},
+{"ThemeId" :"History","Display" :"歴史を楽しむ","icon" :"rekishi","filvalue":"1"},
+{"ThemeId" :"Geography","Display" :"地形を楽しむ","icon" :"chikei","filvalue":"1"},
+{"ThemeId" :"Rare","Display" :"めずらしい坂","icon" :"mezurashii","filvalue":"1"}
 ]

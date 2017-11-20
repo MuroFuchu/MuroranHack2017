@@ -29,3 +29,14 @@ li {
 .td {
     display : table-cell;
 }
+
+.ListBox{
+    margin: 0 auto;
+    width: 100%;
+    height: 360px;
+    border: 1px solid #CCC;
+    border-radius: 10px;
+    box-shadow: 1px 1px #ccc inset;
+    box-shadow: 1px 1px #ccc;
+    overflow:auto;
+}

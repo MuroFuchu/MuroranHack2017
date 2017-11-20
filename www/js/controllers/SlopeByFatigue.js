@@ -31,7 +31,8 @@ app.controller('SlopeByFatigueCtrl', function($scope, GoogleMapService, DbAccess
                         slope.Latitude,
                         slope.Longitude
                     ),
-                    $scope.map
+                    $scope.map,
+                    slope.CompleteFlag
                 );
             }
         });
