@@ -24,6 +24,7 @@ app.factory('DbAccessService', function($q){
                 tx.executeSql("INSERT INTO MstSlope VALUES('011','栗林の坂　（本宅の坂）','42.316176','140.969727','常盤町6丁目20','2','','','1','1','1','0','0','0')");
                 tx.executeSql("INSERT INTO MstSlope VALUES('012','ウスイの坂（水汲道）','0','0','','','','','','','','','1','0')");
                 tx.executeSql("INSERT INTO MstSlope VALUES('013','病院坂','42.31821','140.970536','常盤町1','2','','常盤町と中央町の境にある測量山に至る坂','1','1','1','0','0','0')");
+               /*
                 tx.executeSql("INSERT INTO MstSlope VALUES('014','地球岬/アジサイロード','42.304772','140.998951','母恋南町４丁目','3','','','1','1','1','1','0','0')");
                 tx.executeSql("INSERT INTO MstSlope VALUES('015','トッカリショ','42.309935','141.005449','母恋南町３丁目','3','','','1','1','1','1','0','0')");
                 tx.executeSql("INSERT INTO MstSlope VALUES('016','チャラツナイ展望台','42.305814','140.989786','母恋南町１丁目','3','','','1','1','1','1','0','0')");
@@ -62,7 +63,7 @@ app.factory('DbAccessService', function($q){
                 tx.executeSql("INSERT INTO MstSlope VALUES('049','東陽軒跡地','42.319671','140.970753','中央町1丁目2','1','','','1','1','1','0','1','0')");
                 tx.executeSql("INSERT INTO MstSlope VALUES('050','本輪西駅','42.35894','140.977675','本輪西町1丁目','1','','','1','1','1','0','0','0')");
                 tx.executeSql("INSERT INTO MstSlope VALUES('051','「海に生くる人々」葉山嘉樹 ','42.323605','140.97486','入江町1丁目','1','','','1','1','1','0','0','0')");
-
+               */
             }, 
             function(){
                 // 失敗時
@@ -83,8 +84,9 @@ app.factory('DbAccessService', function($q){
     };
     
     service.openDb = function (){
-        service.db = window.openDatabase("Slope", "", "百名坂", 1024*1024*10);
-        if(service.db.version !== "0.2") {
+        console.log('set db');
+        service.db = window.openDatabase("Slope", "", "百名坂", (1024*1024)-1);
+        if(service.db.version !== "") {
             console.log('not exist db');
             DbInit();
             service.db.changeVersion("0.1", "0.2");
