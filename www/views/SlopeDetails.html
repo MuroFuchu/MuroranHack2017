@@ -11,8 +11,8 @@
   </ons-toolbar>
   <div>
     <div style="margin-top:10px;margin-bottom:10px;margin-left:10px;">
-      <span>{{GetCaption()}}</span>
-      <ons-button ng-click="" style="margin-left:30px;">制覇!</ons-button>
+      <div>{{GetCaption()}}</div>
+      <ons-button ng-click="">制覇!</ons-button>
       <ons-button ng-click="show('list.html')" style="margin-left:10px;">投稿</ons-button>
     </div>
     
@@ -25,7 +25,7 @@
       </div>
       <div>筋肉疲労度：{{slope.Pan}}パン</div>
       <div style="margin-bottom:10px;">
-        <span ng-repeat="pan in getPanIcon() track by $index">
+        <span ng-repeat="pan in getPanIcon(slope.Pan) track by $index">
           <img style="width:28px ; height:28px;" src="img/icon/{{pan}}.png" />
         </span>
       </div>
@@ -54,8 +54,7 @@
     </div>
     
   </div>
-  
-<ons-template id="list.html">
+  <ons-template id="list.html">
   <ons-dialog var="dialog" cancelable>
     <ons-list>
       <ons-list-item modifier="tappable">
@@ -66,4 +65,5 @@
       </ons-list-item>
     </ons-list>
   </ons-dialog> 
+  </ons-template>
 </ons-page>

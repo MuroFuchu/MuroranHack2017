@@ -32,14 +32,14 @@ app.controller('TouristSpotDetailsCtrl', function($scope, GoogleMapService, DbAc
             latitude : Number($scope.spot.place.coordinates.latitude) ,
             longitude : Number($scope.spot.place.coordinates.longitude)
         };
-        
-        DbAccessService.GetSlope(slopeParams).then(function(rows) {
-            $scope.slopes = rows;
+        //DbAccessService.GetSlope(slopeParams).then(function(rows) {
+        DbAccessService.GetSlopeByLL(slopeParams.latitude, slopeParams.longitude).then(function(rows) {
+            $scope.$apply(function(){$scope.slopes = rows});
             
             for(var i in $scope.slopes){
                 var idx = Number(i)+1;
                 var slope = $scope.slopes[i];
-                
+                //console.log("マーカー設置：" + slope.SlopeName);
                 GoogleMapService.markToMap(
                     slope.SlopeName,
                     String(idx),

@@ -26,8 +26,10 @@ app.controller('SlopeDetailsCtrl', function($scope){
     
     $scope.getIcons = CMN.Icon.Get;
     
-    $scope.getPanIcon = function(){
-        var panNum = Number($scope.slope.Pan);
+    $scope.getPanIcon = CMN.Icon.GetPan;
+    /*
+    $scope.getPanIcon = function(panNum){
+        //var panNum = Number($scope.slope.Pan);
         var pans = [];
         
         for(var i = 1 ; i <= 5 ; i++){
@@ -39,6 +41,7 @@ app.controller('SlopeDetailsCtrl', function($scope){
         }
         return pans;
     };
+    */
     
     $scope.show = function(dlg) {
         if (!$scope.dialogs[dlg]) {

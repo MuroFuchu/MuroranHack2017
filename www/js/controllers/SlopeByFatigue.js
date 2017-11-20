@@ -1,6 +1,12 @@
-app.controller('SlopeByFatigueCtrl', function($scope,GetJsonService){
+app.controller('SlopeByFatigueCtrl', function($scope){
+    $scope.Pan = null;
     
-     $scope.init = function(){
+    $scope.init = function(){
+        $scope.Pan = $scope.myNavi.topPage.data;
+        
+        
+        
+        
         //Google mapの設定
         var mapOptions = {           
               center: new google.maps.LatLng(42.329000, 140.98953),             
