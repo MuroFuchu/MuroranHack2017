@@ -82,19 +82,20 @@ app.controller('SlopeDetailsCtrl', function($scope){
     // Facebookに投稿する
     $scope.facebookPop = function(){
         openFB.login(function (data) {
+            openFB.api({
+                method: 'POST',
+                path: '/me/feed',
+                params: {
+                    message: '投稿テスト',
+                },
+                success: function() {
+                    alert('Facebookへの投稿が完了しました。');
+                },
+                error: function(err){
+                    console.log('投稿できませんでした。');
+                }});
         }, {scope: 'publish_actions'});
-        openFB.api({
-            method: 'POST',
-            path: '/me/feed',
-            success: function (response) {
-                message: 'ABCDE';
-            },
-            error: function (err) {
-                console.log("投稿できませんでした。");
-                console.error(err);
-            }
-        });
-    };
+        };
     
     // 初期化
     $scope.init();
