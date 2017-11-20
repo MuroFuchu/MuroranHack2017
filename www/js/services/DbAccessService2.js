@@ -44,7 +44,12 @@ app.factory('DbAccessService', function($q, GetJsonService){
         return ret.toArray();
     };
     
-    
+    service.GetSlopeByPan = function(pan){
+        var ret = service.GetSlope()
+            .where("Pan").equals(pan);
+        
+        return ret.toArray();
+    };
     
     
     

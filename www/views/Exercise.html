@@ -8,52 +8,15 @@
   <div style="text-align:center">   
       <section>
         <ons-list>       
-           <ons-list-header>筋肉疲労度を選んでください</ons-list-header>
-           <ons-list-item modifier="chevron" ng-click="myNavi.pushPage('views/SlopeByFatigue.html');">
-             <span style="width:80px;">1パン坂</span>
-             <span><img src="img/icon/pan.png" height="48px" width="48px" /></span>  
-             <span><img src="img/icon/pan_gray.png" height="48px" width="48px" /></span>
-             <span><img src="img/icon/pan_gray.png" height="48px" width="48px" /></span>
-             <span><img src="img/icon/pan_gray.png" height="48px" width="48px" /></span>
-             <span><img src="img/icon/pan_gray.png" height="48px" width="48px" /></span>
-           </ons-list-item>   
-           
-           <ons-list-item modifier="chevron" ng-click="myNavi.pushPage('views/SlopeByFatigue.html');">
-             <span style="width:80px;">2パン坂</span>
-             <span><img src="img/icon/pan.png" height="48px" width="48px" /></span>  
-             <span><img src="img/icon/pan.png" height="48px" width="48px" /></span>
-             <span><img src="img/icon/pan_gray.png" height="48px" width="48px" /></span>
-             <span><img src="img/icon/pan_gray.png" height="48px" width="48px" /></span>
-             <span><img src="img/icon/pan_gray.png" height="48px" width="48px" /></span>
-           </ons-list-item>   
-           
-           <ons-list-item modifier="chevron" ng-click="myNavi.pushPage('views/SlopeByFatigue.html');">
-             <span style="width:80px;">3パン坂</span>
-             <span><img src="img/icon/pan.png" height="48px" width="48px" /></span>  
-             <span><img src="img/icon/pan.png" height="48px" width="48px" /></span>
-             <span><img src="img/icon/pan.png" height="48px" width="48px" /></span>
-             <span><img src="img/icon/pan_gray.png" height="48px" width="48px" /></span>
-             <span><img src="img/icon/pan_gray.png" height="48px" width="48px" /></span>
-           </ons-list-item>   
-           
-           <ons-list-item modifier="chevron" ng-click="myNavi.pushPage('views/SlopeByFatigue.html');">
-             <span style="width:80px;">4パン坂</span>
-             <span><img src="img/icon/pan.png" height="48px" width="48px" /></span>  
-             <span><img src="img/icon/pan.png" height="48px" width="48px" /></span>
-             <span><img src="img/icon/pan.png" height="48px" width="48px" /></span>
-             <span><img src="img/icon/pan.png" height="48px" width="48px" /></span>
-             <span><img src="img/icon/pan_gray.png" height="48px" width="48px" /></span>
-           </ons-list-item>   
-           
-           <ons-list-item modifier="chevron" ng-click="myNavi.pushPage('views/SlopeByFatigue.html');">
-             <span style="width:80px;">5パン坂</span>
-             <span><img src="img/icon/pan.png" height="48px" width="48px" /></span>  
-             <span><img src="img/icon/pan.png" height="48px" width="48px" /></span>
-             <span><img src="img/icon/pan.png" height="48px" width="48px" /></span>
-             <span><img src="img/icon/pan.png" height="48px" width="48px" /></span>
-             <span><img src="img/icon/pan.png" height="48px" width="48px" /></span>
-           </ons-list-item>   
-               
+            <ons-list-header>筋肉疲労度を選んでください</ons-list-header>
+            <div ng-repeat="i in range(5)">
+                <ons-list-item modifier="chevron" ng-click="linkClick(i);">
+                <span style="width:80px;">{{i}}パン坂</span>
+                <span ng-repeat="pan in getPanIcon(i) track by $index">
+                    <img height="48px" width="48px" src="img/icon/{{pan}}.png" />
+                </span>
+                </ons-list-item>
+            </div>
         </ons-list>       
       </section>
   </div>
