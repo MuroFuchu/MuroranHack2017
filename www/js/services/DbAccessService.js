@@ -64,11 +64,7 @@ app.factory('DbAccessService', function($q){
                 tx.executeSql("INSERT INTO MstSlope VALUES('049','東陽軒跡地','42.319671','140.970753','中央町1丁目2','1','','','1','1','1','0','1','0')");
                 tx.executeSql("INSERT INTO MstSlope VALUES('050','本輪西駅','42.35894','140.977675','本輪西町1丁目','1','','','1','1','1','0','0','0')");
                 tx.executeSql("INSERT INTO MstSlope VALUES('051','「海に生くる人々」葉山嘉樹 ','42.323605','140.97486','入江町1丁目','1','','','1','1','1','0','0','0')");
-<<<<<<< HEAD
-               */
-=======
                 */
->>>>>>> 3eacf48dae741f75d9a76dea0c1f9db10214c6e5
             }, 
             function(){
                 // 失敗時
@@ -89,12 +85,7 @@ app.factory('DbAccessService', function($q){
     };
     
     service.openDb = function (){
-<<<<<<< HEAD
-        console.log('set db');
-        service.db = window.openDatabase("Slope", "", "百名坂", (1024*1024)-1);
-=======
         service.db = window.openDatabase("Slope", "", "百名坂", 1024);
->>>>>>> 3eacf48dae741f75d9a76dea0c1f9db10214c6e5
         if(service.db.version !== "") {
             console.log('not exist db');
             DbInit();
