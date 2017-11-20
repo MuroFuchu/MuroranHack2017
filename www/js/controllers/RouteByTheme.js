@@ -1,10 +1,10 @@
 app.controller('RouteByThemeCtrl', function($scope,GoogleMapService, DbAccessService){
-    $scope.Theme = null;
+    $scope.theme = null;
     $scope.slopes = null;
     $scope.map = null;
     
     $scope.init = function(){
-        $scope.Theme = $scope.myNavi.topPage.data;
+        $scope.theme = $scope.myNavi.topPage.data;
         
         //Googleマップ設定
         $scope.map = GoogleMapService.getMap(
@@ -17,7 +17,7 @@ app.controller('RouteByThemeCtrl', function($scope,GoogleMapService, DbAccessSer
         );
         
         // テーマ別の坂を取得する。
-        DbAccessService.GetSlopeByTheme($scope.Theme.ThemeId + "Flg").then(function(rows) {
+        DbAccessService.GetSlopeByTheme($scope.theme.ThemeId + "Flg", $scope.theme.filvalue).then(function(rows) {
             $scope.$apply(function(){$scope.slopes = rows});
             
             for(var i in $scope.slopes){
@@ -31,10 +31,19 @@ app.controller('RouteByThemeCtrl', function($scope,GoogleMapService, DbAccessSer
                         slope.Latitude,
                         slope.Longitude
                     ),
-                    $scope.map
+                    $scope.map,
+                    slope.CompleteFlag
                 );
             }
         });
+    };
+    
+    $scope.linkClick = function(slope){
+        var link = "SlopeDetails";
+        myNavi.pushPage(
+            "{0}{1}.html".format(CMN.Path.Views , link),
+            {data:slope}
+        );
     };
     
     $scope.init();

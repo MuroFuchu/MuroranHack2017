@@ -54,9 +54,9 @@ app.factory('DbAccessService', function($q, GetJsonService){
         return ret.toArray();
     };
     
-    service.GetSlopeByTheme = function(theme){
+    service.GetSlopeByTheme = function(theme , fil){
         var ret = service.GetSlope()
-            .where(theme).notEqual("0");
+            .where(theme).equals(fil);
         
         return ret.toArray();
     };

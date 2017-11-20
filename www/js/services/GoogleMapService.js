@@ -5,7 +5,7 @@ app.factory('GoogleMapService', function(){
         //console.log("Map初期化"); 
         var map = new google.maps.Map(ele, service.getMapOption(position)); 
         
-        if(title !== undefined) {
+        if(title !== null) {
             //console.log("初期ポジションマーキング");
             service.markToMap(title, null, position, map);
         }
@@ -26,10 +26,19 @@ app.factory('GoogleMapService', function(){
         return new google.maps.LatLng(latitude,longitude);        
     };
     
-    service.markToMap = function(name, label, position, map){
+    service.markToMap = function(name, label, position, map, flg){
+        var icon = null;
+        if(flg !== "0" && flg !== undefined) {
+            icon = {
+                url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+        	    fillOpacity: 0.8
+            };
+    	}
+        
         var marker = new google.maps.Marker({
             position: position,
             label: label,
+            icon: icon,
             title:name
         });
     
