@@ -47,7 +47,8 @@ app.controller('TouristSpotDetailsCtrl', function($scope, GoogleMapService, DbAc
                         slope.Latitude,
                         slope.Longitude
                     ),
-                    $scope.map
+                    $scope.map,
+                    slope.CompleteFlag
                 );
             }
         });

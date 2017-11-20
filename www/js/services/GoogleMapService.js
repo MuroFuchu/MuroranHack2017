@@ -28,7 +28,7 @@ app.factory('GoogleMapService', function(){
     
     service.markToMap = function(name, label, position, map, flg){
         var icon = null;
-        if(flg !== "0") {
+        if(flg !== "0" && flg !== undefined) {
             icon = {
                 url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
         	    fillOpacity: 0.8
