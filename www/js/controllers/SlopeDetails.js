@@ -1,4 +1,4 @@
-app.controller('SlopeDetailsCtrl', function($scope){
+app.controller('SlopeDetailsCtrl', function($scope, GetJsonService){
     $scope.slope = null;
     $scope.dialogs = {};
     
@@ -86,7 +86,20 @@ app.controller('SlopeDetailsCtrl', function($scope){
         }, {scope: 'publish_actions'});
     };
     
+    var container = document.getElementById( "tweet-search-timeline" ) ;
+
+
+    // Twitterツイート検索
+    twttr.widgets.createTimeline (
+        "932767191954362368" ,	// 第1引数: ウィジェットID
+    	container ,	// 第2引数: コンテナの要素
+    	{	// 第3引数: パラメータ
+//    		width: 300 ,	// 横幅
+    		tweetLimit: 5 ,	// ツイートの数
+    	}
+    ) ;
+
+    
     // 初期化
     $scope.init();
-    $scope.fb_init();
 });

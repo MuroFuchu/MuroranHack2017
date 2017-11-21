@@ -15,7 +15,8 @@ function importJS() {
         'js/services/DbAccessService2.js',
         'js/services/GetJsonService.js',
         'js/services/GoogleMapService.js',
-        'js/services/openfb.js'
+        'js/services/openfb.js',
+        'https://platform.twitter.com/widgets.js'
     );
     for (var i=0; i < scripts.length; i++) {
         document.write('<script type="text/javascript" src="' +scripts[i] +'"></script>');
