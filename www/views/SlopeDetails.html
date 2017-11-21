@@ -12,7 +12,12 @@
     <div style="margin-top:10px;margin-bottom:10px;margin-left:10px;">
       <div>{{GetCaption()}}</div>
       <ons-button ng-click="">制覇!</ons-button>
-      <ons-button ng-click="show('list.html')" style="margin-left:10px;">投稿</ons-button>
+      <!--<ons-button ng-click="show('list.html')" style="margin-left:10px;">投稿</ons-button>-->
+      <!--<ons-button ng-click="show(dialog)" style="margin-left:10px;">投稿</ons-button>
+      <ons-dialog var="dialog" cancelable>-->
+          <ons-button ng-click="twitterPop()" style="margin-left:10px;">Twitterに投稿</ons-button>
+          <ons-button ng-click="facebookPop()" style="margin-left:10px;">Facebookに投稿</ons-button>
+      <!--</ons-dialog>-->
     </div>
     
     <div style="margin-left:10px;">
@@ -50,19 +55,20 @@
         <span>名無しさん</span><span style="padding-left;30px;">2017-01-02</span>         
         <p>思いのほかよく登れました!</p>
       </div>
+      <!-- Twitterハッシュタグ検索 -->
+      <div id="tweet-search-timeline"></div>
     </div>
-    
   </div>
-  <ons-template id="list.html">
-  <ons-dialog var="dialog" cancelable>
-    <ons-list>
-      <ons-list-item modifier="tappable">
-        <ons-button ng-click="twitterPop()">Twitterで投稿する</ons-button>
-      </ons-list-item>
-      <ons-list-item modifier="tappable">
-        <ons-button ng-click="facebookPop()">Facebookで投稿する</ons-button>
-      </ons-list-item>
-    </ons-list>
-  </ons-dialog> 
-  </ons-template>
+  <!--<ons-template id="list.html">
+    <ons-dialog var="dialog" cancelable>
+        <ons-list>
+          <ons-list-item modifier="tappable">
+            <ons-button ng-click="twitterPop()">Twitterで投稿する</ons-button>
+          </ons-list-item>
+          <ons-list-item modifier="tappable">
+            <ons-button ng-click="facebookPop()">Facebookで投稿する</ons-button>
+          </ons-list-item>
+        </ons-list>
+    </ons-dialog>
+  </ons-template>-->
 </ons-page>

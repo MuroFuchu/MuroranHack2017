@@ -1,4 +1,4 @@
-app.controller('SlopeDetailsCtrl', function($scope){
+app.controller('SlopeDetailsCtrl', function($scope, GetJsonService){
     $scope.slope = null;
     $scope.dialogs = {};
     
@@ -31,7 +31,7 @@ app.controller('SlopeDetailsCtrl', function($scope){
     $scope.show = function(dlg) {
         if (!$scope.dialogs[dlg]) {
             ons.createDialog(dlg).then(function(dialog) {
-                $scope.dialogs[dlg] = dialog;
+            $scope.dialogs[dlg] = dialog;
                 dialog.show();
             });
         } else {
@@ -52,13 +52,11 @@ app.controller('SlopeDetailsCtrl', function($scope){
 
     // Twitterに投稿する
     $scope.twitterPop = function(){
-        console.log("Twitterに投稿するボタン押下");
-        var div_tweet = document.getElementById('div-tweet');
+        console.log("Twitterに投稿するボタン押下_開始");
         var base_url = 'https://twitter.com/intent/tweet';
         var text = '百名坂をクリアしました。';//ツイート内容
         var hashtags = '室蘭百名坂';//ハッシュタグ
 	    var tweetid = 0;
-
         var tweetLink = base_url +
             '?text=' + encodeURIComponent(text) +
 	        '&hashtags=' + hashtags +
@@ -69,23 +67,39 @@ app.controller('SlopeDetailsCtrl', function($scope){
 
     // Facebookに投稿する
     $scope.facebookPop = function(){
+        console.log('Facebookに投稿するボタン押下');
         openFB.login(function (data) {
             openFB.api({
                 method: 'POST',
                 path: '/me/feed',
                 params: {
-                    message: '投稿テスト',
+                    // 投稿する内容
+                    message: '百名坂をクリアしました。',
                 },
                 success: function() {
+                    console.log('Facebookへの投稿が完了しました。');
                     alert('Facebookへの投稿が完了しました。');
                 },
                 error: function(err){
                     console.log('投稿できませんでした。');
                 }});
         }, {scope: 'publish_actions'});
-        };
+    };
+    
+    var container = document.getElementById( "tweet-search-timeline" ) ;
+
+
+    // Twitterツイート検索
+    twttr.widgets.createTimeline (
+        "932767191954362368" ,	// 第1引数: ウィジェットID
+    	container ,	// 第2引数: コンテナの要素
+    	{	// 第3引数: パラメータ
+//    		width: 300 ,	// 横幅
+    		tweetLimit: 5 ,	// ツイートの数
+    	}
+    ) ;
+
     
     // 初期化
     $scope.init();
-    $scope.fb_init();
 });
