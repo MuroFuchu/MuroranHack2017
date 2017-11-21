@@ -30,8 +30,8 @@ app.factory('GoogleMapService', function(){
         var icon = null;
         if(flg !== "0" && flg !== undefined) {
             icon = {
-                url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
-        	    fillOpacity: 0.8
+                url: "http://maps.google.com/mapfiles/ms/icons/blue.png",
+                fillOpacity: 0.8
             };
     	}
         
