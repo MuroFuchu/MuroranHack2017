@@ -110,7 +110,7 @@ app.controller('SlopeDetailsCtrl', function($scope, GetJsonService,DbAccessServi
         "932767191954362368" ,	// 第1引数: ウィジェットID
     	container ,	// 第2引数: コンテナの要素
     	{	// 第3引数: パラメータ
-//    		width: 300 ,	// 横幅
+            chrome: "'noheader','nofooter'",
     		tweetLimit: 5 ,	// ツイートの数
     	}
     ) ;
