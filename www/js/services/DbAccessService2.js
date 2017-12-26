@@ -61,8 +61,14 @@ app.factory('DbAccessService', function($q, GetJsonService){
         return ret.toArray();
     };
     
+    service.SetComplete = function(slopid){
+        var now = new Date();
+        service.db.MstSlope.update(slopid,{CompleteFlag:1,CompleteDate:now.toLocaleString()});          
+    };
     
-    
-    
+    service.SetIncomplete = function(slopid){
+        service.db.MstSlope.update(slopid,{CompleteFlag:0,CompleteDate:''});          
+    };
+        
     return service;
 });

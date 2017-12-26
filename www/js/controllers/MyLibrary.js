@@ -5,6 +5,11 @@ app.controller('MyLibraryCtrl', function($scope, GoogleMapService, DbAccessServi
     $scope.completeCount = null;
     
     $scope.init = function(){
+        
+        $scope.$on('back', function(event) {
+            console.log("mylibrary");
+        });
+
         $scope.Pan = $scope.myNavi.topPage.data;
         
         //Googleマップ設定

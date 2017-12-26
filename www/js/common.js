@@ -118,3 +118,16 @@ if (String.prototype.contains == undefined) {
         return this.indexOf(arg) != -1;
     };
 }
+
+//////////////////////////////////////////
+/// Date Format
+Date.prototype.toLocaleString = function()
+{
+    return [
+        this.getFullYear(),
+        this.getMonth() + 1,
+        this.getDate()
+        ].join( '-' ) + ' '
+        + this.toLocaleTimeString();
+}
+

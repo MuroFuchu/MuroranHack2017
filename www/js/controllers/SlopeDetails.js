@@ -1,4 +1,4 @@
-app.controller('SlopeDetailsCtrl', function($scope, GetJsonService){
+app.controller('SlopeDetailsCtrl', function($scope, GetJsonService,DbAccessService){
     $scope.slope = null;
     $scope.dialogs = {};
     
@@ -21,7 +21,8 @@ app.controller('SlopeDetailsCtrl', function($scope, GetJsonService){
     };
     
     $scope.GetCaption = function(){
-        return "{0}：{1}".format($scope.slope.SlopeId, $scope.slope.SlopeName);
+        //return "{0}：{1}".format($scope.slope.SlopeId, $scope.slope.SlopeName);
+        return $scope.slope.SlopeName;
     };
     
     $scope.getIcons = CMN.Icon.Get;
@@ -84,6 +85,21 @@ app.controller('SlopeDetailsCtrl', function($scope, GetJsonService){
                     console.log('投稿できませんでした。');
                 }});
         }, {scope: 'publish_actions'});
+    };
+    
+    $scope.complete = function(slopeid){
+        DbAccessService.SetComplete(slopeid);
+        console.log("complete");
+    };
+    
+    $scope.incomplete = function(slopeid){
+        DbAccessService.SetIncomplete(slopeid);
+        console.log("incomplete");
+    };
+    
+    $scope.back = function(){
+      $scope.$emit('back');
+      console.log("pop");   
     };
     
     var container = document.getElementById( "tweet-search-timeline" ) ;
