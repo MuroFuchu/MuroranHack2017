@@ -19,7 +19,12 @@
             <div ng-repeat="(i,slope) in slopes">
                 <ons-list-item modifier="chevron" ng-click="linkClick(slope)">
                     <!--<img src="img/icon/mark1.png" height="48px" width="48px" style="padding-right:10px;" />-->
-                    <span style="width:200px;">{{i+1}}:{{slope.SlopeName}}</span>  
+                    <span style="width:210px;">{{i+1}}:{{slope.SlopeName}}</span>  
+                    <span style="width:120px;">                    
+                      <span ng-repeat="pan in getPanIcon(slope.Pan) track by $index">
+                        <img height="20px" width="20px" src="img/icon/{{pan}}.png" />
+                      </span>   
+                    </span>    
                 </ons-list-item>  
             </div>
         </ons-list>       

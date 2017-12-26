@@ -45,6 +45,7 @@ app.controller('RouteByThemeCtrl', function($scope,GoogleMapService, DbAccessSer
             {data:slope}
         );
     };
-    
+    $scope.getIcons = CMN.Icon.Get;    
+    $scope.getPanIcon = CMN.Icon.GetPan;
     $scope.init();
 });

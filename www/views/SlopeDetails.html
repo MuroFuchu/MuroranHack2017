@@ -1,7 +1,7 @@
 <ons-page ng-controller="SlopeDetailsCtrl">
   <ons-toolbar>
     <div class="left">
-      <ons-back-button>Back</ons-back-button>
+      <ons-back-button ng-click="back()">Back</ons-back-button>
     </div>
     <div class="center">坂道詳細</div>
     <div class="right">
@@ -10,30 +10,59 @@
   </ons-toolbar>
   <div>
     <div style="margin-top:10px;margin-bottom:10px;margin-left:10px;">
-      <div>{{GetCaption()}}</div>
-      <ons-button ng-click="">制覇!</ons-button>
+      <div>{{GetCaption()}}
+       <span style="margin-left:180px;">
+         <ons-button ng-click="complete(slope.SlopeId)">制覇!</ons-button>
+         <ons-button ng-click="incomplete(slope.SlopeId)">制覇解除</ons-button>
+         <img ng-click="twitterPop()" style="width:43px ; height:43px;" src="img/icon/twitter.png" />
+         <img ng-click="facebookPop()" style="width:40px ; height:40px;" src="img/icon/facebook.png" />  
+       </span>          
+      </div>
+      
       <!--<ons-button ng-click="show('list.html')" style="margin-left:10px;">投稿</ons-button>-->
       <!--<ons-button ng-click="show(dialog)" style="margin-left:10px;">投稿</ons-button>
       <ons-dialog var="dialog" cancelable>-->
-          <ons-button ng-click="twitterPop()" style="margin-left:10px;">Twitterに投稿</ons-button>
-          <ons-button ng-click="facebookPop()" style="margin-left:10px;">Facebookに投稿</ons-button>
-      <!--</ons-dialog>-->
+      <!--
+          <ons-button ng-click="twitterPop()" style="margin-left:10px;"><img style="width:28px ; height:28px;" src="img/icon/twitter.png" /></ons-button>
+          <ons-button ng-click="facebookPop()" style="margin-left:10px;"><img style="width:28px ; height:28px;" src="img/icon/facebook.png" /></ons-button>
+      -->
+ 
+
+       
+      
+     <!--
+     <div style="margin-left:150px;">
+       <ons-button ng-click="">制覇!</ons-button>
+       <img ng-click="twitterPop()" style="width:40px ; height:40px;" src="img/icon/twitter.png" />
+       <img ng-click="facebookPop()" style="width:40px ; height:40px;" src="img/icon/facebook.png" />
+     </div>
+     -->
+     <!--</ons-dialog>-->
     </div>
     
-    <div style="margin-left:10px;">
-      <div id="status"></div>
-      <div>
+    <div style="margin-left:10px;"> 
+      <div style="margin-bottom:5px;">
+        <span>筋肉疲労度：{{slope.Pan}}パン</span>
+        <span ng-repeat="pan in getPanIcon(slope.Pan) track by $index">
+          <img style="width:28px ; height:28px;" src="img/icon/{{pan}}.png" />
+        </span>          
+      </div>
+    
+      <div style="margin-bottom:5px;">
         <span ng-repeat="icon in getIcons(slope)">
           <img style="width:28px ; height:28px;" src="img/icon/{{icon}}.png" />
         </span>
       </div>
-      <div>筋肉疲労度：{{slope.Pan}}パン</div>
-      <div style="margin-bottom:10px;">
-        <span ng-repeat="pan in getPanIcon(slope.Pan) track by $index">
-          <img style="width:28px ; height:28px;" src="img/icon/{{pan}}.png" />
-        </span>
+      
+      <div>
+        <span ng-if="slope.FileName == ''">
+          <img src="img/saka/nophoto.png"/ style="width:95%;height:200px;margin-left:auto;margin-right:auto;margin-bottom:5px;">    
+        </span>  
+        <span ng-if="slope.FileName != ''">
+          <img src="img/saka/{{slope.FileName}}"/ style="width:95%;height:200px;margin-left:auto;margin-right:auto;margin-bottom:5px;">    
+        </span>  
       </div>
-      <img src="img/nihonichi.jpg"/ style="width:95%;height:200px;margin-left:auto;margin-right:auto;margin-bottom:5px;">
+      
       <div>{{slope.Explanation}}</div>
       <!--
       <div>
@@ -51,10 +80,7 @@
       </div>
       -->
       <div style="border-bottom:0.5px solid grey;margin-top:10px;"></div>
-      <div style="margin-top:10px;">
-        <span>名無しさん</span><span style="padding-left;30px;">2017-01-02</span>         
-        <p>思いのほかよく登れました!</p>
-      </div>
+    
       <!-- Twitterハッシュタグ検索 -->
       <div id="tweet-search-timeline"></div>
     </div>

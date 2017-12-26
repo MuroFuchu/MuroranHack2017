@@ -2,8 +2,14 @@ app.controller('MyLibraryCtrl', function($scope, GoogleMapService, DbAccessServi
     $scope.Pan = null;
     $scope.map = null;
     $scope.slopes = null;
+    $scope.completeCount = null;
     
     $scope.init = function(){
+        
+        $scope.$on('back', function(event) {
+            console.log("mylibrary");
+        });
+
         $scope.Pan = $scope.myNavi.topPage.data;
         
         //Googleマップ設定
@@ -18,7 +24,9 @@ app.controller('MyLibraryCtrl', function($scope, GoogleMapService, DbAccessServi
         
         // 全ての坂を取得する。
         DbAccessService.GetAllSlope().then(function(rows) {
-            $scope.$apply(function(){$scope.slopes = rows});            
+            $scope.$apply(function(){$scope.slopes = rows});        
+            $scope.$apply(function(){$scope.completeCount = $scope.slopes.filter(function(x){return x.CompleteFlag == 1 }).length;});  
+        
             for(var i in $scope.slopes){
                 var idx = Number(i)+1;
                 var slope = $scope.slopes[i];
@@ -30,10 +38,11 @@ app.controller('MyLibraryCtrl', function($scope, GoogleMapService, DbAccessServi
                         slope.Latitude,
                         slope.Longitude
                     ),
-                    $scope.map
+                    $scope.map,
+                    slope.CompleteFlag
                 );
             }
-        });
+        });        
     };
     
     $scope.linkClick = function(slope){
