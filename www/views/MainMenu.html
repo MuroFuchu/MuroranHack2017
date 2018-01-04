@@ -2,13 +2,19 @@
   <ons-toolbar>
     <div class="center">メインメニュー</div>
     <div class="right">
-      <ons-button onclick="myNavi.replacePage('views/Top.html');" style="margin-top:-20px;margin-right:15px;"><ons-icon icon="fa-reply-all"></ons-icon></ons-button>
+        <ons-toolbar-button onclick="myNavi.replacePage('views/Top.html');" style="margin-top:-20px;margin-right:15px;">
+            <ons-icon icon="fa-reply-all"></ons-icon>
+        </ons-toolbar-button>
     </div>
   </ons-toolbar>
   <div style="text-align:center" ng-controller="MainMenuCtrl">   
       <section>
         <ons-list ng-repeat="m in MainMenuList">
-           <ons-list-item modifier="chevron" ng-click="menuClick(m);"><img src="img/icon/{{m.icon}}" height="48px" width="48px" style="padding-right:10px;" />{{m.text}}</ons-list-item>
+            <ons-list-item modifier="chevron" ng-click="menuClick(m);" lock-on-drag="true">
+                <img src="img/icon/{{m.icon}}" height="48px" width="48px" style="padding-right:10px;" />
+                {{m.text}}
+                        
+            </ons-list-item>
         </ons-list>       
       </section>
   </div>

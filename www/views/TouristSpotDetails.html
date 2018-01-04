@@ -1,60 +1,76 @@
 <ons-page ng-controller="TouristSpotDetailsCtrl">
-  <ons-toolbar>
-    <div class="left">
-      <ons-back-button>Back</ons-back-button>
-    </div>
-    <div class="center">観光地詳細</div>
-    <div class="right">
-      <ons-button onclick="CMN.Navi.BackMainMenu();" style="margin-top:-20px;margin-right:15px;"><ons-icon icon="fa-reply-all"></ons-icon></ons-button>
-    </div>
-  </ons-toolbar>
-  <div>
-    <p style="margin-left:10px;margin-top:10px;">{{spot.name.name1.written}}</p>
-    
-    <div>
-     <table>
-        <tr>
-     		<td style="width:55%">
-                <span>{{getShortDesc()}}</span> 
-            </td>
-            <td style="width:45%"><img src="img/spot/{{spot.mng.refbase}}" style="width:100%;height;100%;" /></td>
-     	</tr>
-     </table>
-    </div>
-    <ons-button style="margin-top:10px;margin-bottom:15px;margin-left:10px;" ng-click="clickReadMoreDesc();">もっと読む</ons-button>
-    <div>
-      <div id="map_canvas" style="width:85%;height:150px;margin-left:auto;margin-right:auto;margin-bottom:20px;"></div>
-      
-       <section style="width:100%;height:300px;overflow:auto;">
-        <ons-list>
-            <ons-list-header>近くのおすすめ坂</ons-list-header>
-            <div ng-repeat="(i, slope) in slopes">
-                <ons-list-item modifier="chevron" ng-click="linkClick(slope)">              
-                <span style="width:220px;">{{i+1}}：{{slope.SlopeName}}</span>
-                <span style="width:110px;">
-                    <span ng-repeat="icon in getIcons(slope)">
-                        <img height="28px" width="28px" src="img/icon/{{icon}}.png" />
-                    </span>   
-                </span>    
-                </ons-list-item>
+    <ons-toolbar>
+        <div class="left">
+          <ons-back-button>Back</ons-back-button>
+        </div>
+        <div class="center">観光地詳細</div>
+        <div class="right">
+            <ons-toolbar-button onclick="CMN.Navi.BackMainMenu();" style="margin-top:-20px;margin-right:15px;">
+                <ons-icon icon="fa-reply-all"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+    </ons-toolbar>
+    <ons-tabbar>
+        <ons-tab label="地図" page="map.html" active></ons-tab>
+        <ons-tab label="情報" page="info.html"></ons-tab>
+    </ons-tabbar>
+    <ons-template id="map.html">
+        <ons-page id="map-page">
+            <div>
+            <p style="margin-left:10px;margin-top:10px;">{{spot.name.name1.written}}</p>
             </div>
-        </ons-list>       
-     </section>
-      
-      <!--
-      <div style="margin-left:10px;">■近くのおすすめ坂</div>
-      
-    <ul>
-        <li style="vertical-align middle" ng-repeat="(i, s) in slopes">
-            {{i+1}}：
-            <a ng-click="linkClick(s)">{{s.SlopeName}}</a>
-            <span ng-repeat="icon in getIcons(s)">
-                <img style="width:28px ; height:28px;" src="img/icon/{{icon}}.png" />  
-            </span>
-        </li>
-    </ul>
-    -->
-    </div>
-    
-  </div>
+            <div id="map_canvas" style="width:100%;height:80%;"></div>
+            <ons-carousel style="height;20px" var="slopeList" centered swipeable auto-scroll 
+                auto-scroll-ratio="0.2" ons-postchange="console.log('Changed to ' + $event.activeIndex)">
+                <ons-carousel-item ng-repeat="(i,slope) in slopes">
+                    <table>
+                        <tr>
+                            <td rowspan="2" class="left">
+                                <ons-button modifier="quiet" ng-click="slopeList.prev()">
+                                    <ons-icon icon="md-chevron-left"></ons-icon>
+                                </ons-button>
+                            </td>
+                            <td style="width:99%;" ng-click="linkClick(slope)">
+                                <span>
+                                    {{i+1}} ： {{slope.SlopeName}}
+                                </span>
+                            </td>
+                            <td rowspan="2" class="right">
+                                <ons-button modifier="quiet" ng-click="slopeList.next()">
+                                    <ons-icon icon="md-chevron-right"></ons-icon>
+                                </ons-button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span ng-repeat="icon in getIcons(slope)">
+                                    <img height="28px" width="28px" src="img/icon/{{icon}}.png" />
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </ons-carousel-item>
+            </ons-carousel>
+        </ons-page>
+    </ons-template>
+    <ons-template id="info.html">
+        <ons-page id="info-page">
+            <div>
+            <p style="margin-left:10px;margin-top:10px;">{{spot.name.name1.written}}</p>
+            </div>
+            <div class="table">
+                <div class="tr">
+                    <div style="width:100%;height;40%;">
+                        <img src="img/spot/{{spot.mng.refbase}}" />
+                    </div>
+                </div>
+                <div class="tr">
+                    {{getShortDesc()}}
+                </div>
+                <div class="tr">
+                    <ons-button style="margin-top:10px;margin-bottom:15px;margin-left:10px;" ng-click="clickReadMoreDesc();">もっと読む</ons-button>
+                </div>
+            </div>
+        </ons-page>
+    </ons-template>
 </ons-page>

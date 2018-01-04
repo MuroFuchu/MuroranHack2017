@@ -6,11 +6,6 @@ app.controller('MainMenuCtrl', function($scope,GetJsonService){
         GetJsonService.getData("MenuList").then(
             function(res) {
                 $scope.MainMenuList = res.data;
-                console.log("↓取得データ内容↓");
-                for(var i in $scope.MainMenuList){
-                    console.log("{0}/{1}".format($scope.MainMenuList[i].page , $scope.MainMenuList[i].text));
-                }
-                console.log("↑取得データ内容↑");
             }
         );
     };

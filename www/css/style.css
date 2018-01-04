@@ -1,5 +1,4 @@
 /**/
-
 a {
     color:rgb(  5,  99, 193);
     text-decoration:underline;
@@ -13,6 +12,7 @@ div.GMap {
 li { 
     list-style-type: none;   
     margin-bottom:7px;
+}
 
 .table {
     display : table;
@@ -28,6 +28,10 @@ li {
 
 .td {
     display : table-cell;
+}
+
+.dib {
+    display:inline-block;
 }
 
 .ListBox{

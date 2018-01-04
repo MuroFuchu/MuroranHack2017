@@ -26,27 +26,53 @@ app.factory('GoogleMapService', function(){
         return new google.maps.LatLng(latitude,longitude);        
     };
     
-    service.markToMap = function(name, label, position, map, flg){
+    service.getMarker = function(name, label, position, map, flg){
         var icon = null;
         if(flg !== "0" && flg !== undefined) {
             icon = {
                 url: "http://maps.google.com/mapfiles/ms/icons/blue.png",
                 fillOpacity: 0.8
             };
-    	}
+        }
         
-        var marker = new google.maps.Marker({
+        return new google.maps.Marker({
             position: position,
             label: label,
             icon: icon,
-            title:name
+            title: name,
+            map: map
         });
+    };
+    
+    service.markToMap = function(name, label, position, map, flg){
+        var marker = service.getMarker(name, label, position, map, flg);
     
         marker.setMap(map);
         google.maps.event.addListener(marker, 'click', function() {
               var infowindow = new google.maps.InfoWindow({ content:marker.title });
               infowindow.open(map,marker);
         });
+    };
+    
+    service.marksToMap = function(markers, map){
+        service.clearMarkers(markers);
+        for(var i in markers){
+            var marker = markers[i];
+            
+            marker.setMap(map);
+            google.maps.event.addListener(marker, 'click', function() {
+                  var infowindow = new google.maps.InfoWindow({ content:marker.title });
+                  infowindow.open(map,marker);
+            });
+        }
+    };
+    
+    service.clearMarkers = function(markers){
+        for(var i in markers){
+            var marker = markers[i];
+            
+            marker.setMap(null);
+        }
     };
     
     return service;

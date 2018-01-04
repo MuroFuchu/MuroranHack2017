@@ -2,6 +2,13 @@
 // グローバルオブジェクト
 app = angular.module( 'myApp', ['onsen']);
 CMN = {};
+
+///////////////////////////////////////////
+//フラグ
+CMN.Flg = new Object();
+CMN.Flg.On = "1";
+CMN.Flg.Off = "0";
+
 ///////////////////////////////////////////
 //パス
 CMN.Path = new Object();
