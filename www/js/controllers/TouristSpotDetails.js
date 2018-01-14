@@ -38,35 +38,40 @@ app.controller('TouristSpotDetailsCtrl', function($scope, GoogleMapService, DbAc
             };
             //DbAccessService.GetSlope(slopeParams).then(function(rows) {
             DbAccessService.GetSlopeByLL(slopeParams.latitude, slopeParams.longitude).then(function(rows) {
-                $scope.$apply(function(){$scope.slopes = rows});
+                $scope.$apply(function(){$scope.slopes = rows;});
                 
-                $scope.markers = new Array();
+                $scope.createMarkerInfo();
                 
-                for(var i in $scope.slopes){
-                    var idx = Number(i)+1;
-                    var slope = $scope.slopes[i];
-                    
-                    var item = GoogleMapService.getMarker(
-                        slope.SlopeName,
-                        String(idx),
-                        GoogleMapService.getLatLng(
-                            slope.Latitude,
-                            slope.Longitude
-                        ),
-                        ( idx -1 === $scope.selectIdx ) ? CMN.Flg.On : CMN.Flg.Off
-                    );
-                    
-                    $scope.markers.push(item);
-                }
-                
-                $scope.SetMarker();
+                $scope.setMarker();
             });
         }
     });
     
     $scope.getIcons = CMN.Icon.Get;
     
-    $scope.SetMarker = function(){
+    $scope.createMarkerInfo = function(){
+        $scope.markers = [];
+        for(var i in $scope.slopes){
+            var idx = Number(i)+1;
+            var slope = $scope.slopes[i];
+            
+            var item = GoogleMapService.getMarker(
+                slope.SlopeName,
+                String(idx),
+                GoogleMapService.getLatLng(
+                    slope.Latitude,
+                    slope.Longitude
+                ),
+                $scope.map,
+                ( idx -1 === $scope.selectIdx ) ? CMN.Icon.Flg.Selected : CMN.Icon.Flg.None,
+                changedActeveIndex(idx)
+            );
+            
+            $scope.markers.push(item);
+        }
+    };
+    
+    $scope.setMarker = function(){
         GoogleMapService.marksToMap($scope.markers, $scope.map);
     };
     
@@ -90,6 +95,18 @@ app.controller('TouristSpotDetailsCtrl', function($scope, GoogleMapService, DbAc
             callback: function() {
             }
         });        
+    };
+    
+    changedActeveIndex = function(idx){
+        //slopeList.setActiveIndex(idx);
+    };
+    
+    $scope.selectChanged = function(idx){
+        $scope.selectIdx = idx;
+        
+        $scope.createMarkerInfo();
+        
+        $scope.setMarker();
     };
     
     $scope.linkClick = function(slope){

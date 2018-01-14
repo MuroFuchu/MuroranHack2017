@@ -20,8 +20,8 @@
             <p style="margin-left:10px;margin-top:10px;">{{spot.name.name1.written}}</p>
             </div>
             <div id="map_canvas" style="width:100%;height:80%;"></div>
-            <ons-carousel style="height;20px" var="slopeList" centered swipeable auto-scroll 
-                auto-scroll-ratio="0.2" ons-postchange="console.log('Changed to ' + $event.activeIndex)">
+            <ons-carousel var="slopeList" style="height;20px" centered swipeable auto-scroll 
+                auto-scroll-ratio="0.2" ons-postchange="selectChanged($event.activeIndex)">
                 <ons-carousel-item ng-repeat="(i,slope) in slopes">
                     <table>
                         <tr>
@@ -58,18 +58,16 @@
             <div>
             <p style="margin-left:10px;margin-top:10px;">{{spot.name.name1.written}}</p>
             </div>
-            <div class="table">
-                <div class="tr">
-                    <div style="width:100%;height;40%;">
-                        <img src="img/spot/{{spot.mng.refbase}}" />
-                    </div>
-                </div>
-                <div class="tr">
-                    {{getShortDesc()}}
-                </div>
-                <div class="tr">
-                    <ons-button style="margin-top:10px;margin-bottom:15px;margin-left:10px;" ng-click="clickReadMoreDesc();">もっと読む</ons-button>
-                </div>
+            <div>
+                <img style="width:100%;" src="img/spot/{{spot.mng.refbase}}" />
+            </div>
+            <div>
+                {{getShortDesc()}}
+            </div>
+            <div>
+                <ons-button style="margin-top:10px;margin-bottom:15px;margin-left:10px;" 
+                    ng-click="clickReadMoreDesc();">もっと読む
+                </ons-button>
             </div>
         </ons-page>
     </ons-template>

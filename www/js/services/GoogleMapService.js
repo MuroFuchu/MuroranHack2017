@@ -26,22 +26,43 @@ app.factory('GoogleMapService', function(){
         return new google.maps.LatLng(latitude,longitude);        
     };
     
-    service.getMarker = function(name, label, position, map, flg){
-        var icon = null;
-        if(flg !== "0" && flg !== undefined) {
-            icon = {
-                url: "http://maps.google.com/mapfiles/ms/icons/blue.png",
-                fillOpacity: 0.8
-            };
+    service.getMarker = function(name, label, position, map, flg, callback){
+        var url = "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
+        
+        switch(flg){
+            case CMN.Icon.Flg.Selected:
+                url = "http://maps.google.com/mapfiles/ms/icons/blue.png";
+                break;
+            case CMN.Icon.Flg.None:
+                url = "http://maps.google.com/mapfiles/ms/icons/red.png";
+                break;
+            case CMN.Icon.Flg.Base:
+                url = "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
+                break;
         }
         
-        return new google.maps.Marker({
+        icon = {
+            url: url,
+            //fillOpacity: 0.8,
+            size: new google.maps.Size(32, 32),
+            labelOrigin: new google.maps.Point(15, 10),
+            //origin: new google.maps.Point(0, 0),
+            //anchor: new google.maps.Point(-4, 0),
+            //scaledSize: new google.maps.Size(32, 32)
+        };
+        var marker =  new google.maps.Marker({
             position: position,
             label: label,
             icon: icon,
             title: name,
             map: map
         });
+        
+        if(callback !== undefined){
+            //marker.addListener('click', callback);
+        }
+        
+        return marker;
     };
     
     service.markToMap = function(name, label, position, map, flg){
@@ -49,8 +70,8 @@ app.factory('GoogleMapService', function(){
     
         marker.setMap(map);
         google.maps.event.addListener(marker, 'click', function() {
-              var infowindow = new google.maps.InfoWindow({ content:marker.title });
-              infowindow.open(map,marker);
+            var infowindow = new google.maps.InfoWindow({ content:marker.title });
+            infowindow.open(map,marker);
         });
     };
     
@@ -59,12 +80,19 @@ app.factory('GoogleMapService', function(){
         for(var i in markers){
             var marker = markers[i];
             
+            //marker.setMap(marker.getMap());
             marker.setMap(map);
-            google.maps.event.addListener(marker, 'click', function() {
-                  var infowindow = new google.maps.InfoWindow({ content:marker.title });
-                  infowindow.open(map,marker);
-            });
+            
+            service.markerAddListener(marker, map);
         }
+    };
+    
+    // うまくいかない（ほかのウィンドウを開いても前のものが残る）
+    service.markerAddListener = function(marker, map){
+//        google.maps.event.addListener(marker, 'click', function() {
+//           var infowindow = new google.maps.InfoWindow({ content:marker.title });
+//            infowindow.open(map,marker);
+//        });
     };
     
     service.clearMarkers = function(markers){

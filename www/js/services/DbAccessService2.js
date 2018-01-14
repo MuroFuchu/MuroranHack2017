@@ -15,7 +15,7 @@ app.factory('DbAccessService', function($q, GetJsonService){
     
     service.openDb = function (){
         service.db = new Dexie("SlopeDatabase");
-        service.db.version(1).stores({
+        service.db.version(11).stores({
             MstSlope: "++SlopeId,SlopeName,Latitude,Longitude,Address,Pan,FiileName,Explanation,SceneryFlg,SeasonFlg,HistoryFlg,GeographyFlg,RareFlg,CompleteFlag,CompleteDate"
         });
         //初期化

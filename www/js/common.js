@@ -33,6 +33,12 @@ CMN.Icon.Geography = "chikei";
 CMN.Icon.Rare = "mezurashii";
 CMN.Icon.Pan = "pan";
 CMN.Icon.PanGray = "pan_gray";
+///////////////////////////////////////////
+// フラグ
+CMN.Icon.Flg = new Object();
+CMN.Icon.Flg.Base = "9";
+CMN.Icon.Flg.Selected = "1";
+CMN.Icon.Flg.None = "0";
 
 CMN.Icon.Get = function(slope){
     var icons = [];
