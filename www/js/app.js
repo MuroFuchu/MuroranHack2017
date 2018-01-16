@@ -11,12 +11,12 @@ function importJS() {
         'js/controllers/SlopeDetails.js',
         'js/controllers/TouristSpotDetails.js',
         'js/controllers/TouristSpotList.js',
-        'js/lib/dexie.js',
+        'js/lib/dexie.min.js',
+        'js/lib/widgets.js',
+        'js/lib/openfb.js',
         'js/services/DbAccessService2.js',
         'js/services/GetJsonService.js',
-        'js/services/GoogleMapService.js',
-        'js/services/openfb.js',
-        'https://platform.twitter.com/widgets.js'
+        'js/services/GoogleMapService.js'
     );
     for (var i=0; i < scripts.length; i++) {
         document.write('<script type="text/javascript" src="' +scripts[i] +'"></script>');

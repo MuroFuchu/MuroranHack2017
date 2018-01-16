@@ -20,22 +20,48 @@ app.controller('SlopeByFatigueCtrl', function($scope, GoogleMapService, DbAccess
         DbAccessService.GetSlopeByPan(String($scope.Pan)).then(function(rows) {
             $scope.$apply(function(){$scope.slopes = rows});
             
-            for(var i in $scope.slopes){
-                var idx = Number(i)+1;
-                var slope = $scope.slopes[i];
-                //console.log("マーカー設置：" + slope.SlopeName);
-                GoogleMapService.markToMap(
-                    slope.SlopeName,
-                    String(idx),
-                    GoogleMapService.getLatLng(
-                        slope.Latitude,
-                        slope.Longitude
-                    ),
-                    $scope.map,
-                    slope.CompleteFlag
-                );
-            }
+            $scope.createMarkerInfo();
+            
+            $scope.setMarker();
         });
+    };
+    
+    $scope.createMarkerInfo = function(){
+        $scope.markers = [];
+        for(var i in $scope.slopes){
+            var idx = Number(i)+1;
+            var slope = $scope.slopes[i];
+            
+            var item = GoogleMapService.getMarker(
+                slope.SlopeName,
+                String(idx),
+                GoogleMapService.getLatLng(
+                    slope.Latitude,
+                    slope.Longitude
+                ),
+                $scope.map,
+                ( idx -1 === $scope.selectIdx ) ? CMN.Icon.Flg.Selected : CMN.Icon.Flg.None,
+                changedActeveIndex(idx)
+            );
+            
+            $scope.markers.push(item);
+        }
+    };
+    
+    $scope.setMarker = function(){
+        GoogleMapService.marksToMap($scope.markers, $scope.map);
+    };
+    
+    changedActeveIndex = function(idx){
+        //slopeList.setActiveIndex(idx);
+    };
+    
+    $scope.selectChanged = function(idx){
+        $scope.selectIdx = idx;
+        
+        $scope.createMarkerInfo();
+        
+        $scope.setMarker();
     };
     
     $scope.linkClick = function(slope){

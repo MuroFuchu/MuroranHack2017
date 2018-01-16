@@ -57,10 +57,10 @@
       
       <div>
         <span ng-if="slope.FileName == ''">
-          <img src="img/saka/nophoto.png"/ style="width:95%;height:200px;margin-left:auto;margin-right:auto;margin-bottom:5px;">    
+          <img src="img/saka/nophoto.png" style="width:95%;height:200px;margin-left:auto;margin-right:auto;margin-bottom:5px;">    
         </span>  
         <span ng-if="slope.FileName != ''">
-          <img src="img/saka/{{slope.FileName}}"/ style="width:95%;height:200px;margin-left:auto;margin-right:auto;margin-bottom:5px;">    
+          <img src={{GetFilePath()}} style="width:95%;height:200px;margin-left:auto;margin-right:auto;margin-bottom:5px;">    
         </span>  
       </div>
       

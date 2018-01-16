@@ -25,6 +25,11 @@ app.controller('SlopeDetailsCtrl', function($scope, GetJsonService,DbAccessServi
         return $scope.slope.SlopeName;
     };
     
+    $scope.GetFilePath = function(){
+        //return "{0}：{1}".format($scope.slope.SlopeId, $scope.slope.SlopeName);
+        return CMN.Path.Img.Slope + $scope.slope.FileName;
+    };
+    
     $scope.getIcons = CMN.Icon.Get;
     
     $scope.getPanIcon = CMN.Icon.GetPan;

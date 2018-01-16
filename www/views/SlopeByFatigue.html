@@ -22,14 +22,50 @@
       <span><img src="img/icon/pan_gray.png" height="24px" width="24px"></span>
       <span><img src="img/icon/pan_gray.png" height="24px" width="24px"></span>
     </p>-->
-    <div id="map_canvas" style="width:85%;height:250px;margin-left:auto;margin-right:auto;margin-bottom:20px;"></div>
-    
+    <!-- 道原追加 -->
+    <div id="map_canvas" style="width:100%;height:80%;min-height:480px;"></div>
+    <ons-carousel var="slopeList"  centered swipeable auto-scroll 
+        auto-scroll-ratio="0.2" ons-postchange="selectChanged($event.activeIndex)">
+        <ons-carousel-item ng-repeat="(i,slope) in slopes">
+            <table>
+                <tr>
+                    <td rowspan="2" class="left">
+                        <ons-button modifier="quiet" ng-click="slopeList.prev()">
+                            <ons-icon icon="md-chevron-left"></ons-icon>
+                        </ons-button>
+                    </td>
+                    <td style="width:99%;" ng-click="linkClick(slope)">
+                        <span>
+                            {{i+1}} ： {{slope.SlopeName}}
+                        </span>
+                    </td>
+                    <td rowspan="2" class="right">
+                        <ons-button modifier="quiet" ng-click="slopeList.next()">
+                            <ons-icon icon="md-chevron-right"></ons-icon>
+                        </ons-button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span ng-repeat="icon in getIcons(slope)">
+                            <img height="28px" width="28px" src="img/icon/{{icon}}.png" />
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </ons-carousel-item>
+    </ons-carousel>
+    <!-- 道原終了 -->
+ <!-- 
+ <div id="map_canvas" style="width:85%;height:250px;margin-left:auto;margin-right:auto;margin-bottom:20px;"></div>
+   
     <section style="width:100%;height:300px;overflow:auto;">
         <ons-list>
             <ons-list-header>坂を選んで下さい</ons-list-header>
             <div ng-repeat="(i, slope) in slopes">
                 <ons-list-item modifier="chevron" ng-click="linkClick(slope)">
                 <!--<img src="img/icon/mark1.png" height="48px" width="48px" style="padding-right:10px;" />-->
+ <!-- 
                 <span style="width:220px;">{{i+1}}：{{slope.SlopeName}}</span>
                 <span style="width:110px;">
                     <span ng-repeat="icon in getIcons(slope)">
@@ -40,5 +76,6 @@
             </div>
         </ons-list>       
      </section>
+    -->
   </div>
 </ons-page>
