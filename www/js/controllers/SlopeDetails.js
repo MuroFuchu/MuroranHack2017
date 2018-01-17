@@ -94,11 +94,15 @@ app.controller('SlopeDetailsCtrl', function($scope, GetJsonService,DbAccessServi
     
     $scope.complete = function(slopeid){
         DbAccessService.SetComplete(slopeid);
+        $scope.slope.CompleteFlag = '1';
+        ons.notification.toast({message: '制覇しました！', timeout: 500});
         console.log("complete");
     };
     
     $scope.incomplete = function(slopeid){
         DbAccessService.SetIncomplete(slopeid);
+        $scope.slope.CompleteFlag = '0';
+        ons.notification.toast({message: '制覇解除しました！', timeout: 500});
         console.log("incomplete");
     };
     

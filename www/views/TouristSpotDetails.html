@@ -1,4 +1,10 @@
 <ons-page ng-controller="TouristSpotDetailsCtrl">
+    <style>
+        .map {
+            width:100%;
+            height: calc(100% - 110px);
+        }
+    </style>
     <ons-toolbar>
         <div class="left">
           <ons-back-button>Back</ons-back-button>
@@ -17,13 +23,13 @@
     <ons-template id="map.html">
         <ons-page id="map-page">
             <div>
-            <p style="margin-left:10px;margin-top:10px;">{{spot.name.name1.written}}</p>
+            <p style="margin:10px;">{{spot.name.name1.written}}</p>
             </div>
-            <div id="map_canvas" style="width:100%;height:80%;"></div>
-            <ons-carousel var="slopeList" style="height;20px" centered swipeable auto-scroll 
+            <div id="map_canvas" class="map"></div>
+            <ons-carousel var="slopeList" centered swipeable auto-scroll 
                 auto-scroll-ratio="0.2" ons-postchange="selectChanged($event.activeIndex)">
                 <ons-carousel-item ng-repeat="(i,slope) in slopes">
-                    <table>
+                    <table style="height:66px;vertical-align:middle;">
                         <tr>
                             <td rowspan="2" class="left">
                                 <ons-button modifier="quiet" ng-click="slopeList.prev()">
@@ -31,8 +37,9 @@
                                 </ons-button>
                             </td>
                             <td style="width:99%;" ng-click="linkClick(slope)">
-                                <span>
-                                    {{i+1}} ： {{slope.SlopeName}}
+                                <span style="display:inline-block;">{{i+1}}：</span>
+                                <span style="display:inline-block;" ng-repeat="icon in getIcons(slope)">
+                                    <img height="24" width="24" src="img/icon/{{icon}}.png" />
                                 </span>
                             </td>
                             <td rowspan="2" class="right">
@@ -42,11 +49,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <span ng-repeat="icon in getIcons(slope)">
-                                    <img height="28px" width="28px" src="img/icon/{{icon}}.png" />
-                                </span>
-                            </td>
+                            <td ng-click="linkClick(slope)">{{slope.SlopeName}}</td>
                         </tr>
                     </table>
                 </ons-carousel-item>

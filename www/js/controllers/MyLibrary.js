@@ -4,11 +4,12 @@ app.controller('MyLibraryCtrl', function($scope, GoogleMapService, DbAccessServi
     $scope.slopes = null;
     $scope.completeCount = null;
     
-    $scope.init = function(){
-        
+    //$scope.init = function(){
+    document.addEventListener("init", function(event) {
+        /*
         $scope.$on('back', function(event) {
             console.log("mylibrary");
-        });
+        });*/
 
         $scope.Pan = $scope.myNavi.topPage.data;
         
@@ -43,7 +44,8 @@ app.controller('MyLibraryCtrl', function($scope, GoogleMapService, DbAccessServi
                 );
             }
         });        
-    };
+    });
+    //};
     
     $scope.linkClick = function(slope){
         var link = "SlopeDetails";
@@ -57,5 +59,5 @@ app.controller('MyLibraryCtrl', function($scope, GoogleMapService, DbAccessServi
     
     $scope.getPanIcon = CMN.Icon.GetPan;
     
-    $scope.init();
+    //$scope.init();
 });

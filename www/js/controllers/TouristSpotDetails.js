@@ -12,6 +12,7 @@ app.controller('TouristSpotDetailsCtrl', function($scope, GoogleMapService, DbAc
         if(options !== undefined){
             $scope.spot = options;
             
+            $scope.desc = "";
             for(var i in $scope.spot.descs){
                 $scope.desc +=  $scope.spot.descs[i].body;
             } 

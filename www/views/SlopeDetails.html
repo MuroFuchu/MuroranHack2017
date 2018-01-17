@@ -1,25 +1,30 @@
 <ons-page ng-controller="SlopeDetailsCtrl">
-  <ons-toolbar>
-    <div class="left">
-      <ons-back-button>Back</ons-back-button>
-      <!--ng-click="back()"-->
-    </div>
-    <div class="center">坂道詳細</div>
-    <div class="right">
-      <ons-button onclick="CMN.Navi.BackMainMenu();" style="margin-top:-20px;margin-right:15px;"><ons-icon icon="fa-reply-all"></ons-icon></ons-button>
-    </div>
-  </ons-toolbar>
-  <div>
+    <ons-toolbar>
+        <div class="left">
+            <ons-back-button>Back</ons-back-button>
+            <!--ng-click="back()"-->
+        </div>
+        <div class="center">坂道詳細</div>
+        <div class="right">
+            <ons-toolbar-button onclick="CMN.Navi.BackMainMenu();" style="margin-top:-20px;margin-right:15px;">
+                <ons-icon icon="fa-reply-all"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+    </ons-toolbar>
     <div style="margin-top:10px;margin-bottom:10px;margin-left:10px;">
-      <div>{{GetCaption()}}
-       <span style="margin-left:180px;">
-         <ons-button ng-click="complete(slope.SlopeId)">制覇!</ons-button>
-         <ons-button ng-click="incomplete(slope.SlopeId)">制覇解除</ons-button>
-         <img ng-click="twitterPop()" style="width:43px ; height:43px;" src="img/icon/twitter.png" />
-         <img ng-click="facebookPop()" style="width:40px ; height:40px;" src="img/icon/facebook.png" />  
-       </span>          
-      </div>
-      
+        <div>{{GetCaption()}}</div>
+        <div style="width:100%;text-align:right;vertical-align:middle">
+            <ons-button ng-click="complete(slope.SlopeId)">制覇!</ons-button>
+            <ons-button ng-click="incomplete(slope.SlopeId)">制覇解除</ons-button>
+            
+            <ons-button modifier="light" style="padding:0px;margin:0px;border:none;height:40px;" ng-click="twitterPop()">
+                <img width="40" height="40" src="img/icon/twitter.png" />
+            </ons-button>
+            <ons-button modifier="light" style="padding:0px;margin:0px;border:none;height:40px;" ng-click="facebookPop()">
+                <img width="40" height="40" src="img/icon/facebook.png" />
+            </ons-button>
+        </div> 
+    </div>  
       <!--<ons-button ng-click="show('list.html')" style="margin-left:10px;">投稿</ons-button>-->
       <!--<ons-button ng-click="show(dialog)" style="margin-left:10px;">投稿</ons-button>
       <ons-dialog var="dialog" cancelable>-->
@@ -39,13 +44,13 @@
      </div>
      -->
      <!--</ons-dialog>-->
-    </div>
+
     
     <div style="margin-left:10px;"> 
       <div style="margin-bottom:5px;">
         <span>筋肉疲労度：{{slope.Pan}}パン</span>
         <span ng-repeat="pan in getPanIcon(slope.Pan) track by $index">
-          <img style="width:28px ; height:28px;" src="img/icon/{{pan}}.png" />
+          <img width="24"px height="24" src="img/icon/{{pan}}.png" />
         </span>          
       </div>
     
@@ -65,27 +70,12 @@
       </div>
       
       <div>{{slope.Explanation}}</div>
-      <!--
-      <div>
-      　古地図の中には「四号道」という表記もあるそうだが、坂自体はいつどのようにできたか不明という。
-      　一説では、北炭が1900年頃に海岸町一帯を埋め立てた際、上下の道をつなぐ坂が設けられたとしている。
-      　<br /><br />
-      　ちょうどそのころ(※2011年の室蘭市広報誌によれば1903年)、「日本一の坂」入口にある室蘭釣具店の位置に一軒のそば店が開業した。
-      　当時の建物の名残はもうないが、その店名こそ「福井庵日本一」だったのだ。
-      　経営者は大沢運次郎、本名、三木竹松。もともと小樽の人だったが、室蘭に流れてきて、名を秘めて旧室蘭駅(1897年開業、1912年移転)の前にそば店を開業した。
-      　<br /><br />
-        この店、駅に近い一等地ということもあり、とても繁盛したという。しかし実は、この経営者は小樽で殺人を犯した人であり、 
-        妻が人殺しと口走ってしまったことと、別件で張り込み中の刑事が同店を訪れるようになったことから、殺人がばれたと思い自殺してしまう、
-        という話も残されている。その坂の名前は、事件を風化させぬよう呼ばれるようになったとも考えられている。
-        坂の名前は、何かが日本一なのではなく、日本一という名前のお店が由来だったのだ。
-      </div>
-      -->
+
       <div style="border-bottom:0.5px solid grey;margin-top:10px;"></div>
     
       <!-- Twitterハッシュタグ検索 -->
       <div id="tweet-search-timeline"></div>
     </div>
-  </div>
   <!--<ons-template id="list.html">
     <ons-dialog var="dialog" cancelable>
         <ons-list>

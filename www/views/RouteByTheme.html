@@ -1,20 +1,28 @@
 <ons-page ng-controller="RouteByThemeCtrl">
-  <ons-toolbar>
-    <div class="left">
-      <ons-back-button>Back</ons-back-button>
-    </div>
-    <div class="center">テーマ別の坂を表示</div>
-    <div class="right">
-      <ons-button onclick="CMN.Navi.BackMainMenu();" style="margin-top:-20px;margin-right:15px;"><ons-icon icon="fa-reply-all"></ons-icon></ons-button>
-    </div>
-  </ons-toolbar>
+    <style>
+        .map {
+            width:100%;
+            height: calc(100% - 110px);
+        }
+    </style>
+    <ons-toolbar>
+        <div class="left">
+            <ons-back-button>Back</ons-back-button>
+            </div>
+            <div class="center">テーマ別の坂を表示</div>
+            <div class="right">
+            <ons-toolbar-button onclick="CMN.Navi.BackMainMenu();" style="margin-top:-20px;margin-right:15px;">
+                <ons-icon icon="fa-reply-all"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+    </ons-toolbar>
     <div>
-        <p style="margin-left:10px;margin-top:10px;">
-            <img src="img/icon/{{theme.icon}}.png" height="24px" width="24px" style="vertical-align:middle;padding-right:5px;" />
+        <p style="margin:10px;">
+            <img src="img/icon/{{theme.icon}}.png" height="24" width="24" style="vertical-align:middle;padding-right:5px;" />
             {{theme.Display}}
         </p>
     </div>
-    <div id="map_canvas" style="width:100%;height:80%;min-height:480px;"></div>
+    <div id="map_canvas" class="map"></div>
     <ons-carousel var="slopeList"  centered swipeable auto-scroll 
         auto-scroll-ratio="0.2" ons-postchange="selectChanged($event.activeIndex)">
         <ons-carousel-item ng-repeat="(i,slope) in slopes">
@@ -26,9 +34,10 @@
                         </ons-button>
                     </td>
                     <td style="width:99%;" ng-click="linkClick(slope)">
-                        <span>
-                            {{i+1}} ： {{slope.SlopeName}}
-                        </span>
+                        <span>{{i+1}}：</span>
+                        <span ng-repeat="pan in getPanIcon(slope.Pan) track by $index">
+                            <img height="20px" width="20px" src="img/icon/{{pan}}.png" />
+                        </span>  
                     </td>
                     <td rowspan="2" class="right">
                         <ons-button modifier="quiet" ng-click="slopeList.next()">
@@ -37,11 +46,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <span ng-repeat="pan in getPanIcon(slope.Pan) track by $index">
-                            <img height="20px" width="20px" src="img/icon/{{pan}}.png" />
-                        </span>  
-                    </td>
+                    <td ng-click="linkClick(slope)">{{slope.SlopeName}}</td>
                 </tr>
             </table>
         </ons-carousel-item>
