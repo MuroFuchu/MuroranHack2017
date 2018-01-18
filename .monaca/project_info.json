@@ -11,11 +11,14 @@
         "cordova-plugin-splashscreen@4.0.3",
         "cordova-custom-config@2.0.3"
     ],
-    "title-ja": "20180115",
+    "title-ja": "室蘭百名坂（ver1.0）",
     "title-en": "",
     "description-ja": "",
     "description-en": "",
     "category": "User Template",
-    "platform": [],
-    "name": "generated-1515996559-5a001199e788859c668b456b"
+    "platform": [
+        "android",
+        "ios"
+    ],
+    "name": "generated-1516243813-5a001199e788859c668b456b"
 }
