@@ -1,22 +1,22 @@
-<ons-page ng-controller="TopCtrl">
+<ons-page ng-controller="TopCtrl as top" ons-init="top.init($event)">
   <div style="width:100%;height:100%;background-image:url('img/top/top{{TopImageNo}}.jpg');background-size:cover;">
     <div class="table">
       <div class="tr">
         <div style="padding-top:50px;">
           <ons-button modifier="light" ng-click="myNavi.replacePage('views/MainMenu.html')" style="border:0;font-size:1.4em;">日本語</ons-button>
         </div>
-        <div>
+        <!--<div>
           <ons-button modifier="light" ng-click=""  style="border:0;font-size:1.4em;" disabled="true">English</ons-button>
-        </div>
+        </div>-->
       </div>
-      <div class="tr">
+      <!--<div class="tr">
         <div>
           <ons-button modifier="light" ng-click=""  style="border:0;font-size:1.4em;" disabled="true">中文(簡体)</ons-button>
         </div>
         <div>
           <ons-button modifier="light" ng-click=""  style="border:0;font-size:1.4em;" disabled="true">한국어</ons-button>
         </div>
-      </div>
+      </div>-->
     </div>
   </div>
 </ons-page>

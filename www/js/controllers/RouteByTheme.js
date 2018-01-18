@@ -5,28 +5,29 @@ app.controller('RouteByThemeCtrl', function($scope,GoogleMapService, DbAccessSer
     $scope.markers = null;
     $scope.selectIdx = 0;
 
-    document.addEventListener("init", function(event) {
-        $scope.theme = $scope.myNavi.topPage.data;
-        
-        //  Googleマップ設定
-        $scope.map = GoogleMapService.getMap(
-            document.getElementById("map_canvas") , 
-            "",
-            GoogleMapService.getLatLng(
-                "42.3223",
-                "140.958258"
-            )
-        );
-        
-        DbAccessService.GetSlopeByTheme($scope.theme.ThemeId + "Flg", $scope.theme.filvalue).then(function(rows) {
-            $scope.$apply(function(){$scope.slopes = rows;});
+    this.init = function(e) {
+        if (e.target === e.currentTarget) {
+            $scope.theme = $scope.myNavi.topPage.data;
             
-            $scope.createMarkerInfo();
+            //  Googleマップ設定
+            $scope.map = GoogleMapService.getMap(
+                document.getElementById("map_canvas") , 
+                "",
+                GoogleMapService.getLatLng(
+                    "42.3223",
+                    "140.958258"
+                )
+            );
             
-            $scope.setMarker();
-        });
-        
-    });
+            DbAccessService.GetSlopeByTheme($scope.theme.ThemeId + "Flg", $scope.theme.filvalue).then(function(rows) {
+                $scope.$apply(function(){$scope.slopes = rows;});
+                
+                $scope.createMarkerInfo();
+                
+                $scope.setMarker();
+            });
+        }
+    };
         /*
     $scope.init = function(){        //Googleマップ設定
         $scope.map = GoogleMapService.getMap(

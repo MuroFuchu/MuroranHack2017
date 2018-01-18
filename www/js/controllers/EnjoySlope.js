@@ -1,12 +1,14 @@
 app.controller('EnjoySlopeCtrl', function($scope,GetJsonService){
     $scope.List = null;
     
-    $scope.init = function(){
-        GetJsonService.getData("Theme").then(
-            function(res) {
-                $scope.List = res.data;
-            }
-        );
+    this.init = function(e){
+        if (e.target === e.currentTarget) {
+            GetJsonService.getData("Theme").then(
+                function(res) {
+                    $scope.List = res.data;
+                }
+            );
+        }
     };
     
     $scope.linkClick = function(theme){
@@ -16,6 +18,4 @@ app.controller('EnjoySlopeCtrl', function($scope,GetJsonService){
             {data:theme}
         );
     };
-    
-    $scope.init();
 });

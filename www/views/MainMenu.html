@@ -1,4 +1,4 @@
-<ons-page>
+<ons-page ng-controller="MainMenuCtrl as menu" ons-init="menu.init($event)">
   <ons-toolbar>
     <div class="center">メインメニュー</div>
     <div class="right">
@@ -7,7 +7,7 @@
         </ons-toolbar-button>
     </div>
   </ons-toolbar>
-  <div style="text-align:center" ng-controller="MainMenuCtrl">   
+  <div style="text-align:center">   
       <section>
         <ons-list ng-repeat="m in MainMenuList">
             <ons-list-item modifier="chevron" ng-click="menuClick(m);" lock-on-drag="true">

@@ -1,7 +1,9 @@
 app.controller('ExerciseCtrl', function($scope){
     
-    $scope.init = function(){
-       
+    this.init = function(e){
+        if(e.target === e.currentTarget) {
+            
+        }
     };
     
     $scope.getPanIcon = CMN.Icon.GetPan;
@@ -17,9 +19,9 @@ app.controller('ExerciseCtrl', function($scope){
         var link = "SlopeByFatigue";
         myNavi.pushPage(
             "{0}{1}.html".format(CMN.Path.Views , link),
-            {data:i}
+            {data:{"pan":i}}
         );
     };   
     
-    $scope.init();
+    //$scope.init();
 });

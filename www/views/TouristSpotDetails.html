@@ -1,4 +1,4 @@
-<ons-page ng-controller="TouristSpotDetailsCtrl">
+<ons-page ng-controller="TouristSpotDetailsCtrl as tourDtl" ons-init="tourDtl.mainInit($event)">
     <style>
         .map {
             width:100%;
@@ -21,7 +21,7 @@
         <ons-tab label="情報" page="info.html"></ons-tab>
     </ons-tabbar>
     <ons-template id="map.html">
-        <ons-page id="map-page">
+        <ons-page id="map-page" ons-init="tourDtl.mapInit($event)">
             <div>
             <p style="margin:10px;">{{spot.name.name1.written}}</p>
             </div>

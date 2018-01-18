@@ -3,27 +3,29 @@ app.controller('SlopeByFatigueCtrl', function($scope, GoogleMapService, DbAccess
     $scope.map = null;
     $scope.slopes = null;
     
-    $scope.init = function(){
-        $scope.Pan = $scope.myNavi.topPage.data;
+    this.init = function(e){
+        if (e.target === e.currentTarget) {
+            $scope.Pan = $scope.myNavi.topPage.data.pan;
         
-        //Googleマップ設定
-        $scope.map = GoogleMapService.getMap(
-            document.getElementById("map_canvas") , 
-            null,
-            GoogleMapService.getLatLng(
-                "42.3223",
-                "140.958258"
-            )
-        );
-        
-        // Pan別の坂を取得する。
-        DbAccessService.GetSlopeByPan(String($scope.Pan)).then(function(rows) {
-            $scope.$apply(function(){$scope.slopes = rows});
+            //Googleマップ設定
+            $scope.map = GoogleMapService.getMap(
+                document.getElementById("map_canvas") , 
+                null,
+                GoogleMapService.getLatLng(
+                    "42.3223",
+                    "140.958258"
+                )
+            );
             
-            $scope.createMarkerInfo();
-            
-            $scope.setMarker();
-        });
+            // Pan別の坂を取得する。
+            DbAccessService.GetSlopeByPan(String($scope.Pan)).then(function(rows) {
+                $scope.$apply(function(){$scope.slopes = rows});
+                
+                $scope.createMarkerInfo();
+                
+                $scope.setMarker();
+            });
+        }
     };
     
     $scope.createMarkerInfo = function(){
@@ -76,5 +78,5 @@ app.controller('SlopeByFatigueCtrl', function($scope, GoogleMapService, DbAccess
     
     $scope.getPanIcon = CMN.Icon.GetPan;
     
-    $scope.init();
+    //$scope.init();
 });

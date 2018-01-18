@@ -4,8 +4,8 @@ app.controller('MyLibraryCtrl', function($scope, GoogleMapService, DbAccessServi
     $scope.slopes = null;
     $scope.completeCount = null;
     
-    //$scope.init = function(){
-    document.addEventListener("init", function(event) {
+    this.init = function(){
+    //document.addEventListener("init", function(event) {
         /*
         $scope.$on('back', function(event) {
             console.log("mylibrary");
@@ -44,8 +44,8 @@ app.controller('MyLibraryCtrl', function($scope, GoogleMapService, DbAccessServi
                 );
             }
         });        
-    });
-    //};
+    //});
+    };
     
     $scope.linkClick = function(slope){
         var link = "SlopeDetails";

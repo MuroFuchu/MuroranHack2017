@@ -2,22 +2,24 @@ app.controller('SlopeDetailsCtrl', function($scope, GetJsonService,DbAccessServi
     $scope.slope = null;
     $scope.dialogs = {};
     
-    $scope.init = function(){
-        var options = $scope.myNavi.topPage.data;
-        if(options !== undefined){
-            $scope.slope = options;
-        } else {
-            console.log("パラメータ取得失敗"); 
+    this.init = function(e){
+        if (e.target === e.currentTarget) {
+            var options = $scope.myNavi.topPage.data;
+            if(options !== undefined){
+                $scope.slope = options;
+            } else {
+                console.log("パラメータ取得失敗"); 
+            }
+            
+            console.log("SlopeDetailsCtrl初期化");
+            console.log("openFB初期化");
+            openFB.init
+                ({
+                    appId: '767624673430987',//Appキー
+                    tokenStore: window.localStorage,//トークン保存場所指定
+                    accessToken: window.localStorage.accessToken//アクセストークンの保存
+                });
         }
-        
-        console.log("SlopeDetailsCtrl初期化");
-        console.log("openFB初期化");
-        openFB.init
-            ({
-                appId: '767624673430987',//Appキー
-                tokenStore: window.localStorage,//トークン保存場所指定
-                accessToken: window.localStorage.accessToken//アクセストークンの保存
-            });
     };
     
     $scope.GetCaption = function(){
@@ -126,5 +128,5 @@ app.controller('SlopeDetailsCtrl', function($scope, GetJsonService,DbAccessServi
 
     
     // 初期化
-    $scope.init();
+    //$scope.init();
 });

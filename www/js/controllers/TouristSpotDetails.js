@@ -6,22 +6,27 @@ app.controller('TouristSpotDetailsCtrl', function($scope, GoogleMapService, DbAc
     $scope.markers = null;
     $scope.selectIdx = 0;
     
-    document.addEventListener("init", function(event) {
-        //パラメータ取得
-        var options = $scope.myNavi.topPage.data;
-        if(options !== undefined){
-            $scope.spot = options;
-            
-            $scope.desc = "";
-            for(var i in $scope.spot.descs){
-                $scope.desc +=  $scope.spot.descs[i].body;
-            } 
-        } else {
-            console.log("パラメータ取得失敗"); 
+    this.mainInit = function(e) {
+        if (e.target === e.currentTarget) {
+            //パラメータ取得
+            var options = $scope.myNavi.topPage.data;
+            if(options !== undefined){
+                $scope.spot = options;
+                
+                $scope.desc = "";
+                for(var i in $scope.spot.descs){
+                    $scope.desc +=  $scope.spot.descs[i].body;
+                } 
+            } else {
+                console.log("パラメータ取得失敗"); 
+            }
         }
-        
-        var page = event.target;  // initイベントが発生したページ
-        if(page.id === "map-page") {
+    };
+    
+    this.mapInit = function(e) {
+        var page = e.target;  // initイベントが発生したページ
+        if (e.target === e.currentTarget) {
+        //if(page.id === "map-page") {
             //  Googleマップ設定
             $scope.map = GoogleMapService.getMap(
                 document.getElementById("map_canvas") , 
@@ -46,7 +51,7 @@ app.controller('TouristSpotDetailsCtrl', function($scope, GoogleMapService, DbAc
                 $scope.setMarker();
             });
         }
-    });
+    };
     
     $scope.getIcons = CMN.Icon.Get;
     
