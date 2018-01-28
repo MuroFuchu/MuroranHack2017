@@ -62,14 +62,15 @@ app.controller('SlopeDetailsCtrl', function($scope, GetJsonService,DbAccessServi
     $scope.twitterPop = function(){
         console.log("Twitterに投稿するボタン押下_開始");
         var base_url = 'https://twitter.com/intent/tweet';
-        var text = '百名坂をクリアしました。';//ツイート内容
+        var text = $scope.slope.SlopeName;//ツイート内容
+//        var text = '百名坂をクリアしました。';//ツイート内容
         var hashtags = '室蘭百名坂';//ハッシュタグ
 	    var tweetid = 0;
         var tweetLink = base_url +
             '?text=' + encodeURIComponent(text) +
 	        '&hashtags=' + hashtags +
 	        '&target=_blank';
-        window.open(encodeURI(decodeURI(tweetLink)), '結果をツイートする');
+        window.open(encodeURI(decodeURI(tweetLink), '_blank'), '結果をツイートする');
         console.log("Twitterに投稿するボタン押下_終了");
     };
 
@@ -82,7 +83,8 @@ app.controller('SlopeDetailsCtrl', function($scope, GetJsonService,DbAccessServi
                 path: '/me/feed',
                 params: {
                     // 投稿する内容
-                    message: '百名坂をクリアしました。',
+                    message: $scope.slope.SlopeName + 'の坂についてについて投稿しました。 #室蘭百名坂',
+//                    message: '百名坂をクリアしました。',
                 },
                 success: function() {
                     console.log('Facebookへの投稿が完了しました。');
@@ -90,7 +92,21 @@ app.controller('SlopeDetailsCtrl', function($scope, GetJsonService,DbAccessServi
                 },
                 error: function(err){
                     console.log('投稿できませんでした。');
-                }});
+                }
+//                method: 'share',
+//                params:{
+//                    display:'popup',
+//                    href: '',
+//                    hashtag: '#室蘭百名坂'
+//                },
+//                success: function() {
+//                    console.log('Facebookへの投稿が完了しました。');
+//                    alert('Facebookへの投稿が完了しました。');
+//                },
+//                error: function(err){
+//                    console.log('投稿できませんでした。');
+//                }});
+                });
         }, {scope: 'publish_actions'});
     };
     
