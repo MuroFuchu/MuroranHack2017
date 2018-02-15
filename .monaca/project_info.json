@@ -1,6 +1,7 @@
 {
     "plugins": [
-        "mobi.monaca.plugins.Monaca"
+        "mobi.monaca.plugins.Monaca",
+        "cordova-custom-config@2.0.3"
     ],
     "framework_version": "3.5",
     "xcode_version": "8",
@@ -9,7 +10,7 @@
     "external_plugins": [
         "cordova-plugin-whitelist@1.3.1",
         "cordova-plugin-splashscreen@4.0.3",
-        "cordova-custom-config@2.0.3"
+        "cordova-plugin-geolocation@2.4.3"
     ],
     "title-ja": "室蘭百名坂（ver1.0）",
     "title-en": "",
@@ -20,5 +21,5 @@
         "android",
         "ios"
     ],
-    "name": "generated-1516243813-5a001199e788859c668b456b"
+    "name": "generated-1516253312-5a001199e788859c668b456b"
 }

@@ -1,5 +1,6 @@
 function importJS() {  
     var scripts = new Array(
+        'js/services/DbAccessService2.js',
         'js/controllers/Top.js',
         'js/controllers/MainMenu.js',
         'js/controllers/EnjoySlope.js',
@@ -14,7 +15,6 @@ function importJS() {
         'js/lib/dexie.min.js',
         'js/lib/widgets.js',
         'js/lib/openfb.js',
-        'js/services/DbAccessService2.js',
         'js/services/GetJsonService.js',
         'js/services/GoogleMapService.js'
     );
