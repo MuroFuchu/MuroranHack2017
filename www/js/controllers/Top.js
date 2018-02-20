@@ -11,7 +11,7 @@ app.controller('TopCtrl', function($scope, DbAccessService){
             
             // データを作るために無駄にSelectしてみる            
             DbAccessService.GetAllSlope();
-            
+            /*
             var option = {
                 timeout: 6000   //タイムアウト値(ミリ秒)
             };
@@ -26,6 +26,7 @@ app.controller('TopCtrl', function($scope, DbAccessService){
                 },
                 option
             );
+            */
         }
     };
 });
